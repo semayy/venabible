@@ -1,496 +1,577 @@
-import React, { useState, useEffect } from 'react';
-import { Layout, Smartphone, Layers, CheckCircle, PlayCircle, Coffee, AlignLeft, Quote } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vena Coffee Co. | Brand Bible & Digital Identity</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-export default function App() {
-  const [activeTab, setActiveTab] = useState('digital'); // Doğrudan dijital sekmeyi açıyoruz
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        ::selection {
+            background-color: #9A7B56;
+            color: white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#FDFCFB] text-stone-800 antialiased">
 
-  // Özel fontları projeye dahil ediyoruz - İnce (200, 300) ağırlıkları eklendi
-  useEffect(() => {
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-  }, []);
-
-  return (
-    <div className="min-h-screen bg-[#FDFCFB] text-stone-800 font-sans selection:bg-[#9A7B56] selection:text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-[#FDFCFB]/90 backdrop-blur-md border-b border-stone-100 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <span className="text-xl tracking-[0.2em] font-medium text-[#3E2723]">VENA</span>
-            <span className="text-[0.65rem] tracking-[0.3em] text-[#9A7B56] mt-0.5 hidden sm:inline-block font-light">COFFEE CO.</span>
-          </div>
-          <div className="flex gap-6 sm:gap-8 text-xs tracking-[0.15em] font-medium">
-            <button 
-              onClick={() => setActiveTab('brand')}
-              className={`pb-1 border-b transition-colors ${activeTab === 'brand' ? 'border-[#3E2723] text-[#3E2723]' : 'border-transparent text-stone-400 hover:text-[#3E2723]'}`}
-            >
-              KURUMSAL KİMLİK
-            </button>
-            <button 
-              onClick={() => setActiveTab('digital')}
-              className={`pb-1 border-b transition-colors ${activeTab === 'digital' ? 'border-[#3E2723] text-[#3E2723]' : 'border-transparent text-stone-400 hover:text-[#3E2723]'}`}
-            >
-              DİJİTAL KİMLİK
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Main Content */}
-      <main className="pt-28 pb-20">
-        {activeTab === 'brand' ? <BrandBible /> : <DigitalIdentity />}
-      </main>
-    </div>
-  );
-}
-
-// --- KURUMSAL KİMLİK (BRAND BIBLE) BİLEŞENİ ---
-function BrandBible() {
-  return (
-    <div className="max-w-5xl mx-auto px-6 animate-fade-in">
-      {/* Hero Section - Yeni Tipografi Hizalaması */}
-      <section className="mb-32 flex flex-col items-center justify-center py-32 bg-[#EBE7E0] rounded-[2rem] overflow-hidden relative shadow-sm">
-        <div className="absolute inset-0 opacity-60 bg-[url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative z-10 flex flex-col items-start text-white w-full max-w-2xl px-8 md:px-0">
-          <div className="flex items-baseline gap-3 mb-1">
-            <span className="text-5xl md:text-7xl font-semibold tracking-widest uppercase">
-              ENJOY
-            </span>
-            <span className="text-4xl md:text-6xl font-serif italic lowercase text-[#EBE7E0]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              your
-            </span>
-          </div>
-          <span className="text-6xl md:text-8xl font-thin tracking-[0.15em] uppercase leading-none">
-            PAUSE
-          </span>
-          
-          <div className="mt-16 text-[0.65rem] md:text-xs tracking-[0.4em] uppercase opacity-70 border-t border-white/30 pt-6 font-light w-full">
-            Minimalist & Premium Coffee Experience
-          </div>
-        </div>
-      </section>
-
-      {/* Tipografi Section */}
-      <section className="mb-32">
-        <div className="flex items-center gap-4 mb-12">
-          <div className="w-8 h-[1px] bg-[#3E2723]"></div>
-          <h2 className="text-sm font-semibold tracking-[0.2em] text-[#3E2723]">01. TİPOGRAFİ & KULLANIM</h2>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-16 items-start">
-          <div className="bg-[#F9F8F6] p-8 md:p-16 rounded-[2rem] border border-stone-100 flex flex-col items-center justify-center text-center">
-             <div className="flex flex-col items-start w-full bg-[url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80')] bg-cover bg-center p-8 md:p-12 rounded-2xl relative overflow-hidden text-white shadow-lg">
-                <div className="absolute inset-0 bg-black/40"></div>
-                <div className="relative z-10 text-left">
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-3xl md:text-4xl font-semibold tracking-widest uppercase">TASTE</span>
-                    <span className="text-2xl md:text-3xl font-serif italic lowercase text-[#EBE7E0]" style={{ fontFamily: "'Playfair Display', serif" }}>the</span>
-                  </div>
-                  <span className="text-5xl md:text-6xl font-thin tracking-[0.1em] uppercase">FLOW</span>
-                </div>
-             </div>
-          </div>
-          
-          <div className="pt-4">
-            <p className="text-stone-500 font-light leading-relaxed mb-10 text-sm">
-              Yeni marka dilimiz minimalist, temiz ve elit bir görünüme odaklanıyor. Kalın (Medium/SemiBold) ve çok ince (Thin/Light) ağırlıkların kontrastı, araya giren zarif serif italiklerle dengelenerek modern bir tipografik hiyerarşi kuruyor.
-            </p>
-            
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">VURGU & İLK KELİME</h3>
-                <p className="text-xl font-semibold tracking-widest text-[#3E2723]">Montserrat Medium/SemiBold</p>
-              </div>
-              
-              <div>
-                <h3 className="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">BAĞLAÇLAR</h3>
-                <p className="text-xl italic font-serif text-[#9A7B56]" style={{ fontFamily: "'Playfair Display', serif" }}>Playfair Display Italic</p>
-              </div>
-
-              <div>
-                <h3 className="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">ANA MESAJ & ODAK</h3>
-                <p className="text-3xl font-thin tracking-[0.1em] text-[#3E2723]">Montserrat Thin / Light</p>
-              </div>
-              
-               <div>
-                <h3 className="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">İMZA (OPSİYONEL)</h3>
-                <p className="text-2xl text-[#9A7B56]" style={{ fontFamily: "'Great Vibes', cursive" }}>Great Vibes</p>
-              </div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-[#FDFCFB]/90 backdrop-blur-md border-b border-stone-100 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-xl tracking-[0.2em] font-medium text-[#3E2723]">VENA</span>
+                <span class="text-[0.65rem] tracking-[0.3em] text-[#9A7B56] mt-0.5 hidden sm:inline-block font-light">COFFEE CO.</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Renk Paleti Section */}
-      <section className="mb-24">
-        <div className="flex items-center gap-4 mb-12">
-          <div className="w-8 h-[1px] bg-[#3E2723]"></div>
-          <h2 className="text-sm font-semibold tracking-[0.2em] text-[#3E2723]">02. RENK PALETİ</h2>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-          <ColorSwatch color="#3E2723" name="Deep Roast" hex="#3E2723" textColor="text-white" />
-          <ColorSwatch color="#9A7B56" name="Warm Earth" hex="#9A7B56" textColor="text-white" />
-          <ColorSwatch color="#EBE7E0" name="Stone Grey" hex="#EBE7E0" textColor="text-stone-800" />
-          <ColorSwatch color="#FDFCFB" name="Pure Canvas" hex="#FDFCFB" textColor="text-stone-800" border />
-        </div>
-      </section>
-    </div>
-  );
-}
-
-function ColorSwatch({ color, name, hex, textColor, border }) {
-  return (
-    <div className="group relative">
-      <div 
-        className={`h-32 md:h-48 rounded-[1.5rem] p-5 md:p-6 flex flex-col justify-end transition-transform duration-300 group-hover:-translate-y-1 ${border ? 'border border-stone-200 bg-white' : ''}`}
-        style={{ backgroundColor: color }}
-      >
-        <p className={`font-medium tracking-wide text-sm ${textColor}`}>{name}</p>
-        <p className={`text-[0.65rem] opacity-70 ${textColor} font-mono mt-1`}>{hex}</p>
-      </div>
-    </div>
-  );
-}
-
-// --- DİJİTAL KİMLİK KULLANIMLARI BİLEŞENİ (GELİŞTİRİLMİŞ EDİTORYAL VERSİYON) ---
-function DigitalIdentity() {
-  return (
-    <div className="max-w-6xl mx-auto px-6 animate-fade-in">
-      <div className="mb-24 text-center max-w-3xl mx-auto">
-        <h2 className="text-4xl font-thin tracking-widest text-[#3E2723] uppercase mb-6">
-          <span className="font-semibold block mb-2">Dijital Ekosistem</span>
-          Kullanım Kılavuzu
-        </h2>
-        <div className="w-16 h-[1px] bg-[#9A7B56] mx-auto mb-6"></div>
-        <p className="text-stone-500 font-light leading-relaxed text-lg">
-          Markamız sıradan bir kahve dükkanı değil; prestijli, incelikli ve bilinçli bir yaşam tarzı sunar. Bu hissiyatı sosyal medyaya taşımak için "editorial" (dergi kapağı) tarzı boşluk kullanımları, asimetrik tipografi ve sinematografik renk kuralları uygulanmalıdır.
-        </p>
-      </div>
-
-      <div className="space-y-32">
-        
-        {/* 1. Instagram Post (Ana İmaj) */}
-        <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div className="md:col-span-5 order-2 md:order-1">
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-4xl font-thin text-[#EBE7E0]">01</span>
-              <div>
-                <h3 className="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2"><Layout size={14} /> Akış & Temel Duruş</h3>
-                <p className="text-xl font-medium tracking-wide text-[#3E2723]">Kare ve Dikey Gönderiler</p>
-              </div>
+            <div class="flex gap-6 sm:gap-8 text-xs tracking-[0.15em] font-medium">
+                <button id="tab-btn-brand" onclick="switchTab('brand')" class="pb-1 border-b transition-colors border-transparent text-stone-400 hover:text-[#3E2723]">
+                    KURUMSAL KİMLİK
+                </button>
+                <button id="tab-btn-digital" onclick="switchTab('digital')" class="pb-1 border-b transition-colors border-[#3E2723] text-[#3E2723]">
+                    DİJİTAL KİMLİK
+                </button>
             </div>
-            <p className="text-stone-500 font-light leading-relaxed mb-6">
-              Vena'nın imza görünümü. Görselin sadece boş ve sakin alanları metin için kullanılır. Hedef kitleye bağırmayan, fısıldayan bir lüks hissiyatı hedeflenir.
-            </p>
-            <ul className="space-y-4 text-sm font-light text-stone-600">
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Tipografi daima <b>sol hizalı</b> veya nesnenin formuna göre <b>sağ alt köşe</b> odaklıdır.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Ağırlıklar: Kalın (SemiBold) &gt; İtalik (Playfair) &gt; Dev İnce (Thin).</span>
-              </li>
-            </ul>
-          </div>
-          <div className="md:col-span-7 order-1 md:order-2">
-            <div className="bg-white p-6 pb-16 rounded-[2.5rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] border border-stone-100 relative group transition-all hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]">
-              <div className="aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-3xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent"></div>
-                <div className="absolute bottom-16 left-10 text-white">
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-5xl font-semibold tracking-widest uppercase shadow-black/50 drop-shadow-md">ENJOY</span>
-                    <span className="text-4xl font-serif italic lowercase text-stone-200 shadow-black/50 drop-shadow-md" style={{ fontFamily: "'Playfair Display', serif" }}>your</span>
-                  </div>
-                  <span className="text-[5rem] font-thin tracking-[0.12em] uppercase leading-[0.85] block -ml-1 drop-shadow-lg">PAUSE</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
+    </nav>
 
-        {/* 2. Reels (Video) Kapağı - YENİ EKLENDİ */}
-        <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div className="md:col-span-6 flex justify-center lg:justify-start">
-             <div className="w-[300px] h-[600px] bg-stone-900 rounded-[3rem] shadow-2xl relative overflow-hidden border-[6px] border-[#3E2723] ring-4 ring-[#EBE7E0]">
-                {/* Video Background */}
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495474472201-416b22b102ce?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-80 mix-blend-luminosity"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90"></div>
-                
-                {/* Instagram Safe Zone Mockup */}
-                <div className="absolute inset-x-0 bottom-0 h-40 border-t border-dashed border-white/20"></div>
-                <div className="absolute right-4 bottom-24 flex flex-col gap-4 text-white/80">
-                  <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
-                  <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
-                  <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
-                </div>
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
 
-                {/* Cinematic Play Button & Typography */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-6 mt-12">
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-3xl font-semibold tracking-widest uppercase">FEEL</span>
-                    <span className="text-2xl font-serif italic lowercase text-[#9A7B56]" style={{ fontFamily: "'Playfair Display', serif" }}>the</span>
-                  </div>
-                  <span className="text-[3.5rem] font-thin tracking-widest uppercase leading-none block">AROMA</span>
-                  <PlayCircle size={48} strokeWidth={1} className="mt-8 opacity-70 hover:opacity-100 transition-opacity cursor-pointer" />
-                </div>
-                
-                <div className="absolute top-8 left-0 w-full text-center">
-                   <span className="bg-black/40 backdrop-blur-md text-[9px] tracking-[0.3em] font-medium text-white px-3 py-1.5 rounded-full uppercase">Sinematik Yaklaşım</span>
-                </div>
-             </div>
-          </div>
-          <div className="md:col-span-6">
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-4xl font-thin text-[#EBE7E0]">02</span>
-              <div>
-                <h3 className="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2"><PlayCircle size={14} /> Video & Hareket</h3>
-                <p className="text-xl font-medium tracking-wide text-[#3E2723]">Reels Kapak Tasarımları</p>
-              </div>
-            </div>
-            <p className="text-stone-500 font-light leading-relaxed mb-6">
-              Video kapaklarında (Reels), Instagram arayüzünün (ikonlar, açıklama metni) fontları kapatmaması kritik öneme sahiptir. Bu nedenle "Güvenli Alan" (Safe Zone) kuralları katı bir şekilde uygulanır.
-            </p>
-            <ul className="space-y-4 text-sm font-light text-stone-600">
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Metin bloğu, videonun tam merkezine veya ekranın orta-üst (mid-top) kısmına yerleştirilir. Alt kısımdan kaçınılır.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Haraketli görsellerin üzerine her zaman siyah/koyu kahve bir 'Gradient' veya '%20 Opak Siyah Overlay' eklenerek kontrast arttırılır.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Tipografi ortalandığında tüm blok "Ortadan Hizalı" (Text-align: center) kurgulanır.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* 3. Ürün & Menü Odaklı - YENİ EKLENDİ */}
-        <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div className="md:col-span-5 order-2 md:order-1">
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-4xl font-thin text-[#EBE7E0]">03</span>
-              <div>
-                <h3 className="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2"><Coffee size={14} /> Odak & Detay</h3>
-                <p className="text-xl font-medium tracking-wide text-[#3E2723]">Ürün ve Menü Duyuruları</p>
-              </div>
-            </div>
-            <p className="text-stone-500 font-light leading-relaxed mb-6">
-              Yeni bir çekirdek, özel bir demleme yöntemi veya imza bir içecek tanıtılırken odak daima ürünün detayındadır. Ürün ambalajı veya kahve fincanı kompozisyonun "kahramanı" olur.
-            </p>
-            <ul className="space-y-4 text-sm font-light text-stone-600">
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Fotoğraflarda "Macro" veya detay çekimler kullanılır. Arka plan mutlaka blur (Boke efekti) veya düz bir renk olmalıdır.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Ürünü destekleyen kısa, zarif bir imza metni (Örn: Signature Blend) ürünün yan boşluğuna yerleştirilir.</span>
-              </li>
-            </ul>
-          </div>
-          <div className="md:col-span-7 order-1 md:order-2">
-            <div className="aspect-square bg-[#EBE7E0] rounded-[2.5rem] relative overflow-hidden group shadow-lg border border-stone-200 p-8 flex flex-col justify-between">
-              {/* Product Layout Mock */}
-              <div className="flex justify-between items-start w-full relative z-10">
-                 <div className="text-[#3E2723] pt-4">
-                    <div className="flex items-baseline gap-1.5 mb-1">
-                      <span className="text-3xl font-semibold tracking-widest uppercase">SIGNATURE</span>
+        <!-- ========================================== -->
+        <!-- KURUMSAL KİMLİK BÖLÜMÜ -->
+        <!-- ========================================== -->
+        <div id="section-brand" class="max-w-5xl mx-auto px-6 animate-fade-in hidden">
+            <!-- Hero Section -->
+            <section class="mb-32 flex flex-col items-center justify-center py-32 bg-[#EBE7E0] rounded-[2rem] overflow-hidden relative shadow-sm">
+                <div class="absolute inset-0 opacity-60 bg-[url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay"></div>
+                <div class="absolute inset-0 bg-black/30"></div>
+                <div class="relative z-10 flex flex-col items-start text-white w-full max-w-2xl px-8 md:px-0">
+                    <div class="flex items-baseline gap-3 mb-1">
+                        <span class="text-5xl md:text-7xl font-semibold tracking-widest uppercase">
+                            ENJOY
+                        </span>
+                        <span class="text-4xl md:text-6xl font-serif italic lowercase text-[#EBE7E0]" style="font-family: 'Playfair Display', serif;">
+                            your
+                        </span>
                     </div>
-                    <span className="text-4xl font-thin tracking-widest uppercase block mb-6">BLEND</span>
-                    <div className="w-8 h-[1px] bg-[#9A7B56]"></div>
-                    <p className="text-[10px] uppercase tracking-[0.2em] font-semibold mt-6 text-[#9A7B56]">Ethiopian & Colombian Origin</p>
-                 </div>
-              </div>
-              
-              {/* Image positioned radically to the bottom right */}
-              <div className="absolute -bottom-12 -right-12 w-3/4 h-3/4 bg-[url('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-tl-[6rem] shadow-2xl transition-transform duration-700 group-hover:scale-105"></div>
-            </div>
-          </div>
+                    <span class="text-6xl md:text-8xl font-thin tracking-[0.15em] uppercase leading-none">
+                        PAUSE
+                    </span>
+                    
+                    <div class="mt-16 text-[0.65rem] md:text-xs tracking-[0.4em] uppercase opacity-70 border-t border-white/30 pt-6 font-light w-full">
+                        Minimalist & Premium Coffee Experience
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tipografi Section -->
+            <section class="mb-32">
+                <div class="flex items-center gap-4 mb-12">
+                    <div class="w-8 h-[1px] bg-[#3E2723]"></div>
+                    <h2 class="text-sm font-semibold tracking-[0.2em] text-[#3E2723]">01. TİPOGRAFİ & KULLANIM</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-16 items-start">
+                    <div class="bg-[#F9F8F6] p-8 md:p-16 rounded-[2rem] border border-stone-100 flex flex-col items-center justify-center text-center">
+                        <div class="flex flex-col items-start w-full bg-[url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80')] bg-cover bg-center p-8 md:p-12 rounded-2xl relative overflow-hidden text-white shadow-lg">
+                            <div class="absolute inset-0 bg-black/40"></div>
+                            <div class="relative z-10 text-left">
+                                <div class="flex items-baseline gap-2 mb-1">
+                                    <span class="text-3xl md:text-4xl font-semibold tracking-widest uppercase">TASTE</span>
+                                    <span class="text-2xl md:text-3xl font-serif italic lowercase text-[#EBE7E0]" style="font-family: 'Playfair Display', serif;">the</span>
+                                </div>
+                                <span class="text-5xl md:text-6xl font-thin tracking-[0.1em] uppercase">FLOW</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4">
+                        <p class="text-stone-500 font-light leading-relaxed mb-10 text-sm">
+                            Yeni marka dilimiz minimalist, temiz ve elit bir görünüme odaklanıyor. Kalın (Medium/SemiBold) ve çok ince (Thin/Light) ağırlıkların kontrastı, araya giren zarif serif italiklerle dengelenerek modern bir tipografik hiyerarşi kuruyor.
+                        </p>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">VURGU & İLK KELİME</h3>
+                                <p class="text-xl font-semibold tracking-widest text-[#3E2723]">Montserrat Medium/SemiBold</p>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">BAĞLAÇLAR</h3>
+                                <p class="text-xl italic font-serif text-[#9A7B56]" style="font-family: 'Playfair Display', serif;">Playfair Display Italic</p>
+                            </div>
+
+                            <div>
+                                <h3 class="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">ANA MESAJ & ODAK</h3>
+                                <p class="text-3xl font-thin tracking-[0.1em] text-[#3E2723]">Montserrat Thin / Light</p>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">İMZA (OPSİYONEL)</h3>
+                                <p class="text-2xl text-[#9A7B56]" style="font-family: 'Great Vibes', cursive;">Great Vibes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Renk Paleti Section -->
+            <section class="mb-24">
+                <div class="flex items-center gap-4 mb-12">
+                    <div class="w-8 h-[1px] bg-[#3E2723]"></div>
+                    <h2 class="text-sm font-semibold tracking-[0.2em] text-[#3E2723]">02. RENK PALETİ</h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                    <!-- Renk 1 -->
+                    <div class="group relative">
+                        <div class="h-32 md:h-48 rounded-[1.5rem] p-5 md:p-6 flex flex-col justify-end transition-transform duration-300 group-hover:-translate-y-1 bg-[#3E2723]">
+                            <p class="font-medium tracking-wide text-sm text-white">Deep Roast</p>
+                            <p class="text-[0.65rem] opacity-70 text-white font-mono mt-1">#3E2723</p>
+                        </div>
+                    </div>
+                    <!-- Renk 2 -->
+                    <div class="group relative">
+                        <div class="h-32 md:h-48 rounded-[1.5rem] p-5 md:p-6 flex flex-col justify-end transition-transform duration-300 group-hover:-translate-y-1 bg-[#9A7B56]">
+                            <p class="font-medium tracking-wide text-sm text-white">Warm Earth</p>
+                            <p class="text-[0.65rem] opacity-70 text-white font-mono mt-1">#9A7B56</p>
+                        </div>
+                    </div>
+                    <!-- Renk 3 -->
+                    <div class="group relative">
+                        <div class="h-32 md:h-48 rounded-[1.5rem] p-5 md:p-6 flex flex-col justify-end transition-transform duration-300 group-hover:-translate-y-1 bg-[#EBE7E0]">
+                            <p class="font-medium tracking-wide text-sm text-stone-800">Stone Grey</p>
+                            <p class="text-[0.65rem] opacity-70 text-stone-800 font-mono mt-1">#EBE7E0</p>
+                        </div>
+                    </div>
+                    <!-- Renk 4 -->
+                    <div class="group relative">
+                        <div class="h-32 md:h-48 rounded-[1.5rem] p-5 md:p-6 flex flex-col justify-end transition-transform duration-300 group-hover:-translate-y-1 bg-[#FDFCFB] border border-stone-200">
+                            <p class="font-medium tracking-wide text-sm text-stone-800">Pure Canvas</p>
+                            <p class="text-[0.65rem] opacity-70 text-stone-800 font-mono mt-1">#FDFCFB</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        {/* 4. Manifesto & Alıntı - YENİ EKLENDİ */}
-        <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div className="md:col-span-7">
-             <div className="aspect-square bg-[#3E2723] rounded-[2.5rem] relative overflow-hidden shadow-2xl p-12 lg:p-16 flex flex-col justify-center text-center">
-                <Quote size={120} className="absolute -top-6 -left-6 text-[#9A7B56] opacity-20 rotate-180" />
-                <Quote size={120} className="absolute -bottom-6 -right-6 text-[#9A7B56] opacity-20" />
-                
-                <h4 className="text-[#EBE7E0] font-thin text-2xl md:text-4xl leading-[1.6] tracking-wide relative z-10 font-serif" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  "Coffee is not just a beverage, <br />
-                  <span className="font-bold text-white italic">it's the art of</span> pausing time."
-                </h4>
-                
-                <div className="mt-12 flex flex-col items-center">
-                  <div className="w-[1px] h-12 bg-[#9A7B56] mb-6"></div>
-                  <span className="text-[#9A7B56] text-[10px] tracking-[0.3em] font-bold uppercase">Vena Philosophy</span>
-                </div>
-             </div>
-          </div>
-          <div className="md:col-span-5">
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-4xl font-thin text-[#EBE7E0]">04</span>
-              <div>
-                <h3 className="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2"><AlignLeft size={14} /> Marka Sesi</h3>
-                <p className="text-xl font-medium tracking-wide text-[#3E2723]">Manifesto ve Alıntılar</p>
-              </div>
-            </div>
-            <p className="text-stone-500 font-light leading-relaxed mb-6">
-              Markanın felsefesini, duruşunu veya değerlerini anlatan sadece metin odaklı (typographic) gönderilerde imaj kullanılmaz. Metnin kendisi bir görsele dönüşür.
-            </p>
-            <ul className="space-y-4 text-sm font-light text-stone-600">
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Arka plan daima marka paletindeki düz ve koyu renklerden (Deep Roast #3E2723) seçilir.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Ana metin için "Playfair Display", vurgulanmak istenen kilit kelimeler için "Italic" kullanılır.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Çok geniş kenar boşlukları bırakılarak metnin "nefes alması" sağlanır. Asla kenarlara yaklaşılmaz.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
 
-        {/* 5. Carousel (Daha Minimal) */}
-        <div className="border-t border-stone-200 pt-24 mt-24">
-          <div className="flex flex-col items-center text-center mb-16">
-            <Layers className="text-[#9A7B56] mb-4" size={32} strokeWidth={1} />
-            <h3 className="text-xl font-medium tracking-wide text-[#3E2723] mb-2">05. Kaydırmalı Hikaye Anlatıcılığı (Carousel)</h3>
-            <p className="text-stone-500 font-light max-w-2xl">Bölünmüş ekranlar ve birbirine bağlanan grafik elemanlarla kullanıcının kaydırma (swipe) isteğini tetikleyen editorial yaklaşım.</p>
-          </div>
-          
-          <div className="bg-[#FDFCFB] p-8 md:p-16 rounded-[3rem] shadow-sm border border-stone-100 flex gap-6 overflow-x-auto no-scrollbar snap-x relative">
-              {/* 1. Slide */}
-              <div className="w-[85%] md:w-[60%] shrink-0 aspect-square bg-[#3E2723] rounded-[2rem] relative p-10 flex flex-col justify-center text-white snap-center overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?auto=format&fit=crop&q=80')] mix-blend-overlay opacity-20 bg-cover"></div>
-                <div className="relative z-10">
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-3xl font-semibold tracking-widest uppercase">DISCOVER</span>
-                    <span className="text-2xl font-serif italic lowercase text-[#9A7B56]" style={{ fontFamily: "'Playfair Display', serif" }}>the</span>
-                  </div>
-                  <span className="text-5xl font-thin tracking-[0.1em] uppercase">ROAST</span>
-                </div>
-                <div className="absolute bottom-8 right-8 text-[#9A7B56] text-[10px] tracking-widest font-bold uppercase flex items-center gap-2">
-                  Swipe <span className="text-lg leading-none">&rarr;</span>
-                </div>
-              </div>
-              {/* 2. Slide */}
-              <div className="w-[85%] md:w-[60%] shrink-0 aspect-square bg-[#EBE7E0] rounded-[2rem] relative p-12 flex flex-col justify-center text-[#3E2723] snap-center">
-                <h4 className="text-2xl font-semibold mb-6 tracking-wide uppercase">The Art of <br/>Roasting</h4>
-                <div className="w-12 h-[1px] bg-[#9A7B56] mb-8"></div>
-                <p className="font-light text-base leading-[2] tracking-wide text-stone-600">
-                  Using traditional roasting methods, we unlock the hidden notes inside every single bean. It's not just a process; it's a pursuit of perfection.
+        <!-- ========================================== -->
+        <!-- DİJİTAL KİMLİK BÖLÜMÜ -->
+        <!-- ========================================== -->
+        <div id="section-digital" class="max-w-6xl mx-auto px-6 animate-fade-in block">
+            
+            <div class="mb-24 text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl font-thin tracking-widest text-[#3E2723] uppercase mb-6">
+                    <span class="font-semibold block mb-2">Dijital Ekosistem</span>
+                    Kullanım Kılavuzu
+                </h2>
+                <div class="w-16 h-[1px] bg-[#9A7B56] mx-auto mb-6"></div>
+                <p class="text-stone-500 font-light leading-relaxed text-lg">
+                    Markamız sıradan bir kahve dükkanı değil; prestijli, incelikli ve bilinçli bir yaşam tarzı sunar. Bu hissiyatı sosyal medyaya taşımak için "editorial" (dergi kapağı) tarzı boşluk kullanımları, asimetrik tipografi ve sinematografik renk kuralları uygulanmalıdır.
                 </p>
-                <div className="absolute top-12 right-12 text-stone-300 font-serif italic text-6xl">02</div>
-              </div>
-          </div>
-        </div>
+            </div>
 
-        {/* 6. Patisserie & Pairing - YENİ EKLENDİ (TATLI) */}
-        <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div className="md:col-span-6 flex justify-center lg:justify-start order-2 md:order-1">
-             <div className="aspect-[3/4] w-full bg-[#3E2723] rounded-[3rem] shadow-2xl relative overflow-hidden group">
-                {/* Image of croissant / dessert */}
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495147466023-2ce6c9b4eb88?auto=format&fit=crop&q=80')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"></div>
+            <div class="space-y-32">
                 
-                {/* Soft gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/30 to-transparent"></div>
-                
-                {/* Typography */}
-                <div className="absolute bottom-12 left-10 text-white z-10">
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl font-semibold tracking-widest uppercase shadow-black/50 drop-shadow-sm">SWEETEN</span>
-                    <span className="text-3xl font-serif italic lowercase text-[#9A7B56] shadow-black/50 drop-shadow-sm" style={{ fontFamily: "'Playfair Display', serif" }}>the</span>
-                  </div>
-                  <span className="text-[4rem] font-thin tracking-widest uppercase leading-none block drop-shadow-md">MOMENT</span>
-                  <div className="w-10 h-[1px] bg-white/50 mt-6 mb-4"></div>
-                  <span className="text-xs tracking-[0.3em] font-light uppercase text-white/80">Artisan Pastries</span>
+                <!-- 1. Instagram Post (Ana İmaj) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-4xl font-thin text-[#EBE7E0]">01</span>
+                            <div>
+                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
+                                    <i data-lucide="layout" class="w-3.5 h-3.5"></i> Akış & Temel Duruş
+                                </h3>
+                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Kare ve Dikey Gönderiler</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed mb-6">
+                            Vena'nın imza görünümü. Görselin sadece boş ve sakin alanları metin için kullanılır. Hedef kitleye bağırmayan, fısıldayan bir lüks hissiyatı hedeflenir.
+                        </p>
+                        <ul class="space-y-4 text-sm font-light text-stone-600">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Tipografi daima <b>sol hizalı</b> veya nesnenin formuna göre <b>sağ alt köşe</b> odaklıdır.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Ağırlıklar: Kalın (SemiBold) &gt; İtalik (Playfair) &gt; Dev İnce (Thin).</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="bg-white p-6 pb-16 rounded-[2.5rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] border border-stone-100 relative group transition-all hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]">
+                            <div class="aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-3xl relative overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent"></div>
+                                <div class="absolute bottom-16 left-10 text-white">
+                                    <div class="flex items-baseline gap-2 mb-1">
+                                        <span class="text-5xl font-semibold tracking-widest uppercase shadow-black/50 drop-shadow-md">ENJOY</span>
+                                        <span class="text-4xl font-serif italic lowercase text-stone-200 shadow-black/50 drop-shadow-md" style="font-family: 'Playfair Display', serif;">your</span>
+                                    </div>
+                                    <span class="text-[5rem] font-thin tracking-[0.12em] uppercase leading-[0.85] block -ml-1 drop-shadow-lg">PAUSE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-             </div>
-          </div>
-          <div className="md:col-span-6 order-1 md:order-2">
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-4xl font-thin text-[#EBE7E0]">06</span>
-              <div>
-                <h3 className="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2"><Coffee size={14} /> Lezzet & Eşleşme</h3>
-                <p className="text-xl font-medium tracking-wide text-[#3E2723]">Patisserie & Tatlılar</p>
-              </div>
-            </div>
-            <p className="text-stone-500 font-light leading-relaxed mb-6">
-              Kahve deneyimini tamamlayan imza tatlılarımız, artisan keklerimiz ve kruvasanlarımız için tasarlanan gönderi şablonu. Lezzeti ön plana çıkaran, iştah açıcı (appetizing) ve sıcak bir kompozisyon.
-            </p>
-            <ul className="space-y-4 text-sm font-light text-stone-600">
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Görsellerde daha sıcak ve zengin tonlar kullanılır. Ürünün dokusu (kruvasan katmanları, pudra şekeri vb.) net olarak vurgulanır.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Tipografi, alt bölüme konumlandırılarak "SWEETEN the MOMENT" gibi İngilizce iştah açıcı sloganlarla desteklenir.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
 
-        {/* 7. Story / Lifestyle - YENİ EKLENDİ */}
-        <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div className="md:col-span-5 order-2 md:order-1">
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-4xl font-thin text-[#EBE7E0]">07</span>
-              <div>
-                <h3 className="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2"><Smartphone size={14} /> Hikaye & Yaşam Tarzı</h3>
-                <p className="text-xl font-medium tracking-wide text-[#3E2723]">Lifestyle Story'ler</p>
-              </div>
-            </div>
-            <p className="text-stone-500 font-light leading-relaxed mb-6">
-              Müşterilerin dükkan içindeki anları, sabah ritüelleri veya barista detayları gibi dikey (9:16) formatlı "Lifestyle" hikaye kullanımları.
-            </p>
-            <ul className="space-y-4 text-sm font-light text-stone-600">
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Tipografi merkeze veya üst boşluğa yerleştirilir. Metinler kısa, zarif ve duyguyu yansıtacak şekilde İngilizce olmalıdır (Örn: MORNING rituals).</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle size={18} className="text-[#9A7B56] shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span>Alt kısımlar etkileşim butonları (Link, Anket vb.) veya Instagram arayüzü için temiz bırakılır.</span>
-              </li>
-            </ul>
-          </div>
-          <div className="md:col-span-7 order-1 md:order-2 flex justify-center">
-            <div className="w-[320px] h-[570px] bg-[#EBE7E0] rounded-[2.5rem] shadow-xl relative overflow-hidden border-[6px] border-white">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521017430205-c2502844c6d6?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
-              <div className="absolute inset-0 bg-black/10"></div>
-              <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent"></div>
-              
-              <div className="absolute top-12 w-full text-center text-white px-6">
-                 <div className="flex justify-center items-baseline gap-2 mb-1">
-                    <span className="text-3xl font-semibold tracking-widest uppercase">MORNING</span>
-                 </div>
-                 <span className="text-5xl font-serif italic lowercase text-[#EBE7E0] drop-shadow-md" style={{ fontFamily: "'Playfair Display', serif" }}>rituals</span>
-              </div>
-              
-              {/* Instagram Story UI Mockup */}
-              <div className="absolute top-4 left-4 right-4 flex gap-1">
-                <div className="h-0.5 bg-white rounded-full flex-1"></div>
-                <div className="h-0.5 bg-white/40 rounded-full flex-1"></div>
-                <div className="h-0.5 bg-white/40 rounded-full flex-1"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+                <!-- 2. Reels (Video) Kapağı -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-6 flex justify-center lg:justify-start">
+                        <div class="w-[300px] h-[600px] bg-stone-900 rounded-[3rem] shadow-2xl relative overflow-hidden border-[6px] border-[#3E2723] ring-4 ring-[#EBE7E0]">
+                            <!-- Video Background -->
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495474472201-416b22b102ce?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-80 mix-blend-luminosity"></div>
+                            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90"></div>
+                            
+                            <!-- Instagram Safe Zone Mockup -->
+                            <div class="absolute inset-x-0 bottom-0 h-40 border-t border-dashed border-white/20"></div>
+                            <div class="absolute right-4 bottom-24 flex flex-col gap-4 text-white/80">
+                                <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
+                                <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
+                                <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
+                            </div>
 
-      </div>
-    </div>
-  );
-}
+                            <!-- Cinematic Play Button & Typography -->
+                            <div class="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-6 mt-12">
+                                <div class="flex items-baseline gap-2 mb-1">
+                                    <span class="text-3xl font-semibold tracking-widest uppercase">FEEL</span>
+                                    <span class="text-2xl font-serif italic lowercase text-[#9A7B56]" style="font-family: 'Playfair Display', serif;">the</span>
+                                </div>
+                                <span class="text-[3.5rem] font-thin tracking-widest uppercase leading-none block">AROMA</span>
+                                <i data-lucide="play-circle" stroke-width="1" class="w-12 h-12 mt-8 opacity-70 hover:opacity-100 transition-opacity cursor-pointer"></i>
+                            </div>
+                            
+                            <div class="absolute top-8 left-0 w-full text-center">
+                                <span class="bg-black/40 backdrop-blur-md text-[9px] tracking-[0.3em] font-medium text-white px-3 py-1.5 rounded-full uppercase">Sinematik Yaklaşım</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-6">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-4xl font-thin text-[#EBE7E0]">02</span>
+                            <div>
+                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
+                                    <i data-lucide="play-circle" class="w-3.5 h-3.5"></i> Video & Hareket
+                                </h3>
+                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Reels Kapak Tasarımları</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed mb-6">
+                            Video kapaklarında (Reels), Instagram arayüzünün (ikonlar, açıklama metni) fontları kapatmaması kritik öneme sahiptir. Bu nedenle "Güvenli Alan" (Safe Zone) kuralları katı bir şekilde uygulanır.
+                        </p>
+                        <ul class="space-y-4 text-sm font-light text-stone-600">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Metin bloğu, videonun tam merkezine veya ekranın orta-üst (mid-top) kısmına yerleştirilir. Alt kısımdan kaçınılır.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Haraketli görsellerin üzerine her zaman siyah/koyu kahve bir 'Gradient' veya '%20 Opak Siyah Overlay' eklenerek kontrast arttırılır.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Tipografi ortalandığında tüm blok "Ortadan Hizalı" (Text-align: center) kurgulanır.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. Ürün & Menü Odaklı -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-4xl font-thin text-[#EBE7E0]">03</span>
+                            <div>
+                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
+                                    <i data-lucide="coffee" class="w-3.5 h-3.5"></i> Odak & Detay
+                                </h3>
+                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Ürün ve Menü Duyuruları</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed mb-6">
+                            Yeni bir çekirdek, özel bir demleme yöntemi veya imza bir içecek tanıtılırken odak daima ürünün detayındadır. Ürün ambalajı veya kahve fincanı kompozisyonun "kahramanı" olur.
+                        </p>
+                        <ul class="space-y-4 text-sm font-light text-stone-600">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Fotoğraflarda "Macro" veya detay çekimler kullanılır. Arka plan mutlaka blur (Boke efekti) veya düz bir renk olmalıdır.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Ürünü destekleyen kısa, zarif bir imza metni (Örn: Signature Blend) ürünün yan boşluğuna yerleştirilir.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-square bg-[#EBE7E0] rounded-[2.5rem] relative overflow-hidden group shadow-lg border border-stone-200 p-8 flex flex-col justify-between">
+                            <!-- Product Layout Mock -->
+                            <div class="flex justify-between items-start w-full relative z-10">
+                                <div class="text-[#3E2723] pt-4">
+                                    <div class="flex items-baseline gap-1.5 mb-1">
+                                        <span class="text-3xl font-semibold tracking-widest uppercase">SIGNATURE</span>
+                                    </div>
+                                    <span class="text-4xl font-thin tracking-widest uppercase block mb-6">BLEND</span>
+                                    <div class="w-8 h-[1px] bg-[#9A7B56]"></div>
+                                    <p class="text-[10px] uppercase tracking-[0.2em] font-semibold mt-6 text-[#9A7B56]">Ethiopian & Colombian Origin</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Image positioned radically to the bottom right -->
+                            <div class="absolute -bottom-12 -right-12 w-3/4 h-3/4 bg-[url('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-tl-[6rem] shadow-2xl transition-transform duration-700 group-hover:scale-105"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Manifesto & Alıntı -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7">
+                        <div class="aspect-square bg-[#3E2723] rounded-[2.5rem] relative overflow-hidden shadow-2xl p-12 lg:p-16 flex flex-col justify-center text-center">
+                            <i data-lucide="quote" class="w-32 h-32 absolute -top-6 -left-6 text-[#9A7B56] opacity-20 rotate-180"></i>
+                            <i data-lucide="quote" class="w-32 h-32 absolute -bottom-6 -right-6 text-[#9A7B56] opacity-20"></i>
+                            
+                            <h4 class="text-[#EBE7E0] font-thin text-2xl md:text-4xl leading-[1.6] tracking-wide relative z-10 font-serif" style="font-family: 'Playfair Display', serif;">
+                                "Coffee is not just a beverage, <br />
+                                <span class="font-bold text-white italic">it's the art of</span> pausing time."
+                            </h4>
+                            
+                            <div class="mt-12 flex flex-col items-center">
+                                <div class="w-[1px] h-12 bg-[#9A7B56] mb-6"></div>
+                                <span class="text-[#9A7B56] text-[10px] tracking-[0.3em] font-bold uppercase">Vena Philosophy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-4xl font-thin text-[#EBE7E0]">04</span>
+                            <div>
+                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Marka Sesi
+                                </h3>
+                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Manifesto ve Alıntılar</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed mb-6">
+                            Markanın felsefesini, duruşunu veya değerlerini anlatan sadece metin odaklı (typographic) gönderilerde imaj kullanılmaz. Metnin kendisi bir görsele dönüşür.
+                        </p>
+                        <ul class="space-y-4 text-sm font-light text-stone-600">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Arka plan daima marka paletindeki düz ve koyu renklerden (Deep Roast #3E2723) seçilir.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Ana metin için "Playfair Display", vurgulanmak istenen kilit kelimeler için "Italic" kullanılır.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Çok geniş kenar boşlukları bırakılarak metnin "nefes alması" sağlanır. Asla kenarlara yaklaşılmaz.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5. Carousel (Daha Minimal) -->
+                <div class="border-t border-stone-200 pt-24 mt-24">
+                    <div class="flex flex-col items-center text-center mb-16">
+                        <i data-lucide="layers" stroke-width="1" class="w-8 h-8 text-[#9A7B56] mb-4"></i>
+                        <h3 class="text-xl font-medium tracking-wide text-[#3E2723] mb-2">05. Kaydırmalı Hikaye Anlatıcılığı (Carousel)</h3>
+                        <p class="text-stone-500 font-light max-w-2xl">Bölünmüş ekranlar ve birbirine bağlanan grafik elemanlarla kullanıcının kaydırma (swipe) isteğini tetikleyen editorial yaklaşım.</p>
+                    </div>
+                    
+                    <div class="bg-[#FDFCFB] p-8 md:p-16 rounded-[3rem] shadow-sm border border-stone-100 flex gap-6 overflow-x-auto no-scrollbar snap-x relative">
+                        <!-- 1. Slide -->
+                        <div class="w-[85%] md:w-[60%] shrink-0 aspect-square bg-[#3E2723] rounded-[2rem] relative p-10 flex flex-col justify-center text-white snap-center overflow-hidden">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?auto=format&fit=crop&q=80')] mix-blend-overlay opacity-20 bg-cover"></div>
+                            <div class="relative z-10">
+                                <div class="flex items-baseline gap-2 mb-1">
+                                    <span class="text-3xl font-semibold tracking-widest uppercase">DISCOVER</span>
+                                    <span class="text-2xl font-serif italic lowercase text-[#9A7B56]" style="font-family: 'Playfair Display', serif;">the</span>
+                                </div>
+                                <span class="text-5xl font-thin tracking-[0.1em] uppercase">ROAST</span>
+                            </div>
+                            <div class="absolute bottom-8 right-8 text-[#9A7B56] text-[10px] tracking-widest font-bold uppercase flex items-center gap-2">
+                                Swipe <span class="text-lg leading-none">&rarr;</span>
+                            </div>
+                        </div>
+                        <!-- 2. Slide -->
+                        <div class="w-[85%] md:w-[60%] shrink-0 aspect-square bg-[#EBE7E0] rounded-[2rem] relative p-12 flex flex-col justify-center text-[#3E2723] snap-center">
+                            <h4 class="text-2xl font-semibold mb-6 tracking-wide uppercase">The Art of <br/>Roasting</h4>
+                            <div class="w-12 h-[1px] bg-[#9A7B56] mb-8"></div>
+                            <p class="font-light text-base leading-[2] tracking-wide text-stone-600">
+                                Using traditional roasting methods, we unlock the hidden notes inside every single bean. It's not just a process; it's a pursuit of perfection.
+                            </p>
+                            <div class="absolute top-12 right-12 text-stone-300 font-serif italic text-6xl">02</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Patisserie & Pairing (TATLI) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-6 flex justify-center lg:justify-start order-2 md:order-1">
+                        <div class="aspect-[3/4] w-full bg-[#3E2723] rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                            <!-- Image of croissant / dessert -->
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495147466023-2ce6c9b4eb88?auto=format&fit=crop&q=80')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"></div>
+                            
+                            <!-- Soft gradient overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/30 to-transparent"></div>
+                            
+                            <!-- Typography -->
+                            <div class="absolute bottom-12 left-10 text-white z-10">
+                                <div class="flex items-baseline gap-2 mb-1">
+                                    <span class="text-4xl font-semibold tracking-widest uppercase shadow-black/50 drop-shadow-sm">SWEETEN</span>
+                                    <span class="text-3xl font-serif italic lowercase text-[#9A7B56] shadow-black/50 drop-shadow-sm" style="font-family: 'Playfair Display', serif;">the</span>
+                                </div>
+                                <span class="text-[4rem] font-thin tracking-widest uppercase leading-none block drop-shadow-md">MOMENT</span>
+                                <div class="w-10 h-[1px] bg-white/50 mt-6 mb-4"></div>
+                                <span class="text-xs tracking-[0.3em] font-light uppercase text-white/80">Artisan Pastries</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-6 order-1 md:order-2">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-4xl font-thin text-[#EBE7E0]">06</span>
+                            <div>
+                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
+                                    <i data-lucide="coffee" class="w-3.5 h-3.5"></i> Lezzet & Eşleşme
+                                </h3>
+                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Patisserie & Tatlılar</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed mb-6">
+                            Kahve deneyimini tamamlayan imza tatlılarımız, artisan keklerimiz ve kruvasanlarımız için tasarlanan gönderi şablonu. Lezzeti ön plana çıkaran, iştah açıcı (appetizing) ve sıcak bir kompozisyon.
+                        </p>
+                        <ul class="space-y-4 text-sm font-light text-stone-600">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Görsellerde daha sıcak ve zengin tonlar kullanılır. Ürünün dokusu (kruvasan katmanları, pudra şekeri vb.) net olarak vurgulanır.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Tipografi, alt bölüme konumlandırılarak "SWEETEN the MOMENT" gibi İngilizce iştah açıcı sloganlarla desteklenir.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 7. Story / Lifestyle -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-4xl font-thin text-[#EBE7E0]">07</span>
+                            <div>
+                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
+                                    <i data-lucide="smartphone" class="w-3.5 h-3.5"></i> Hikaye & Yaşam Tarzı
+                                </h3>
+                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Lifestyle Story'ler</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed mb-6">
+                            Müşterilerin dükkan içindeki anları, sabah ritüelleri veya barista detayları gibi dikey (9:16) formatlı "Lifestyle" hikaye kullanımları.
+                        </p>
+                        <ul class="space-y-4 text-sm font-light text-stone-600">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Tipografi merkeze veya üst boşluğa yerleştirilir. Metinler kısa, zarif ve duyguyu yansıtacak şekilde İngilizce olmalıdır (Örn: MORNING rituals).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
+                                <span>Alt kısımlar etkileşim butonları (Link, Anket vb.) veya Instagram arayüzü için temiz bırakılır.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2 flex justify-center">
+                        <div class="w-[320px] h-[570px] bg-[#EBE7E0] rounded-[2.5rem] shadow-xl relative overflow-hidden border-[6px] border-white">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521017430205-c2502844c6d6?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 bg-black/10"></div>
+                            <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent"></div>
+                            
+                            <div class="absolute top-12 w-full text-center text-white px-6">
+                                <div class="flex justify-center items-baseline gap-2 mb-1">
+                                    <span class="text-3xl font-semibold tracking-widest uppercase">MORNING</span>
+                                </div>
+                                <span class="text-5xl font-serif italic lowercase text-[#EBE7E0] drop-shadow-md" style="font-family: 'Playfair Display', serif;">rituals</span>
+                            </div>
+                            
+                            <!-- Instagram Story UI Mockup -->
+                            <div class="absolute top-4 left-4 right-4 flex gap-1">
+                                <div class="h-0.5 bg-white rounded-full flex-1"></div>
+                                <div class="h-0.5 bg-white/40 rounded-full flex-1"></div>
+                                <div class="h-0.5 bg-white/40 rounded-full flex-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        // Lucide ikonlarını başlat (SVG'lere dönüştürür)
+        lucide.createIcons();
+
+        // Sekme Değiştirme (Tab Switching) Mantığı
+        function switchTab(tabName) {
+            const btnBrand = document.getElementById('tab-btn-brand');
+            const btnDigital = document.getElementById('tab-btn-digital');
+            const sectionBrand = document.getElementById('section-brand');
+            const sectionDigital = document.getElementById('section-digital');
+
+            if (tabName === 'brand') {
+                // Stil güncellemeleri
+                btnBrand.classList.remove('border-transparent', 'text-stone-400');
+                btnBrand.classList.add('border-[#3E2723]', 'text-[#3E2723]');
+                btnDigital.classList.remove('border-[#3E2723]', 'text-[#3E2723]');
+                btnDigital.classList.add('border-transparent', 'text-stone-400');
+                
+                // Görünürlük güncellemeleri
+                sectionBrand.classList.remove('hidden');
+                sectionBrand.classList.add('block');
+                sectionDigital.classList.remove('block');
+                sectionDigital.classList.add('hidden');
+                
+            } else if (tabName === 'digital') {
+                // Stil güncellemeleri
+                btnDigital.classList.remove('border-transparent', 'text-stone-400');
+                btnDigital.classList.add('border-[#3E2723]', 'text-[#3E2723]');
+                btnBrand.classList.remove('border-[#3E2723]', 'text-[#3E2723]');
+                btnBrand.classList.add('border-transparent', 'text-stone-400');
+                
+                // Görünürlük güncellemeleri
+                sectionDigital.classList.remove('hidden');
+                sectionDigital.classList.add('block');
+                sectionBrand.classList.remove('block');
+                sectionBrand.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
