@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vena Coffee Co. | Brand Bible & Digital Identity</title>
+    <title>Vena Coffee & Lifestyle | Brand Bible 2026</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,162 +19,337 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
         }
-        ::selection {
-            background-color: #9A7B56;
-            color: white;
-        }
+        ::selection { background-color: #9A7B56; color: white; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
+        .animate-fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .text-shadow-sm { text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
+        .glass-panel {
+            background: rgba(253, 252, 251, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        
+        .matrix-cell { border: 1px solid rgba(154, 123, 86, 0.1); transition: all 0.4s ease; }
+        .matrix-cell:hover { background: #fff; box-shadow: 0 20px 40px -15px rgba(62,39,35,0.08); transform: translateY(-2px); z-index: 10;}
+        
+        .seamless-carousel { scroll-snap-type: x mandatory; }
+        .seamless-slide { scroll-snap-align: center; }
     </style>
 </head>
-<body class="min-h-screen bg-[#FDFCFB] text-stone-800 antialiased">
+<body class="min-h-screen bg-[#FDFCFB] text-stone-800 antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-[#FDFCFB]/90 backdrop-blur-md border-b border-stone-100 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-2">
-                <span class="text-xl tracking-[0.2em] font-medium text-[#3E2723]">VENA</span>
-                <span class="text-[0.65rem] tracking-[0.3em] text-[#9A7B56] mt-0.5 hidden sm:inline-block font-light">COFFEE CO.</span>
+    <nav class="fixed top-0 w-full glass-panel border-b border-stone-100 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center cursor-pointer" onclick="switchTab('brand')">
+                <img src="https://venacoffeeco.com/wp-content/uploads/2026/03/cropped-vena_logo_atakule_1.png" alt="Vena Coffee Co." class="h-10 md:h-12 w-auto object-contain">
             </div>
-            <div class="flex gap-6 sm:gap-8 text-xs tracking-[0.15em] font-medium">
-                <button id="tab-btn-brand" onclick="switchTab('brand')" class="pb-1 border-b transition-colors border-transparent text-stone-400 hover:text-[#3E2723]">
+            <div class="flex gap-4 sm:gap-10 text-[0.65rem] md:text-xs tracking-[0.2em] font-semibold">
+                <button id="tab-btn-brand" onclick="switchTab('brand')" class="pb-1 border-b-2 transition-all border-[#3E2723] text-[#3E2723]">
                     KURUMSAL KİMLİK
                 </button>
-                <button id="tab-btn-digital" onclick="switchTab('digital')" class="pb-1 border-b transition-colors border-[#3E2723] text-[#3E2723]">
-                    DİJİTAL KİMLİK
+                <button id="tab-btn-digital" onclick="switchTab('digital')" class="pb-1 border-b-2 transition-all border-transparent text-stone-400 hover:text-[#3E2723]">
+                    DİJİTAL MATRİS (30 ŞABLON)
                 </button>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="pt-28 pb-20">
+    <main class="pt-32 pb-24">
 
         <!-- ========================================== -->
         <!-- KURUMSAL KİMLİK BÖLÜMÜ -->
         <!-- ========================================== -->
-        <div id="section-brand" class="max-w-5xl mx-auto px-6 animate-fade-in hidden">
+        <div id="section-brand" class="max-w-7xl mx-auto px-6 animate-fade-in block">
+            <div class="mb-20 text-center max-w-4xl mx-auto mt-10">
+                <h1 class="text-[0.65rem] tracking-[0.5em] font-bold text-[#9A7B56] uppercase mb-4">2026 Lifestyle Evolution</h1>
+                <h2 class="text-4xl md:text-6xl font-thin tracking-widest text-[#3E2723] uppercase mb-6 leading-tight">
+                    <span class="font-bold block mb-2">Marka Anayasası</span>
+                    Brand Guidelines
+                </h2>
+                <div class="w-12 h-[2px] bg-[#9A7B56] mx-auto mb-8"></div>
+                <p class="text-stone-500 font-light leading-relaxed text-sm md:text-base">
+                    Vena sadece bir kahve dükkanı değil; kahve, bütünsel beslenme (Fit & Functional), kozmetik ve artisan takı disiplinlerini tek çatı altında toplayan "Sakinleştirici Lüks" (Calm Luxury) konseptli devasa bir yaşam alanıdır. Tüm marka vizyonu bu felsefe üzerine inşa edilmiştir.
+                </p>
+            </div>
+
             <!-- Hero Section -->
-            <section class="mb-32 flex flex-col items-center justify-center py-32 bg-[#EBE7E0] rounded-[2rem] overflow-hidden relative shadow-sm">
-                <div class="absolute inset-0 opacity-60 bg-[url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay"></div>
-                <div class="absolute inset-0 bg-black/30"></div>
-                <div class="relative z-10 flex flex-col items-start text-white w-full max-w-2xl px-8 md:px-0">
-                    <div class="flex items-baseline gap-3 mb-1">
-                        <span class="text-5xl md:text-7xl font-semibold tracking-widest uppercase">
-                            ENJOY
-                        </span>
-                        <span class="text-4xl md:text-6xl font-serif italic lowercase text-[#EBE7E0]" style="font-family: 'Playfair Display', serif;">
-                            your
-                        </span>
-                    </div>
-                    <span class="text-6xl md:text-8xl font-thin tracking-[0.15em] uppercase leading-none">
-                        PAUSE
-                    </span>
-                    
-                    <div class="mt-16 text-[0.65rem] md:text-xs tracking-[0.4em] uppercase opacity-70 border-t border-white/30 pt-6 font-light w-full">
-                        Minimalist & Premium Coffee Experience
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tipografi Section -->
-            <section class="mb-32">
-                <div class="flex items-center gap-4 mb-12">
-                    <div class="w-8 h-[1px] bg-[#3E2723]"></div>
-                    <h2 class="text-sm font-semibold tracking-[0.2em] text-[#3E2723]">01. TİPOGRAFİ & KULLANIM</h2>
-                </div>
+            <section class="mb-32 flex flex-col items-center justify-center py-40 bg-[#3E2723] rounded-[3rem] overflow-hidden relative shadow-2xl group">
+                <div class="absolute inset-0 opacity-50 bg-[url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay transition-transform duration-[2s] group-hover:scale-105"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#3E2723]/80 via-transparent to-transparent"></div>
                 
-                <div class="grid md:grid-cols-2 gap-16 items-start">
-                    <div class="bg-[#F9F8F6] p-8 md:p-16 rounded-[2rem] border border-stone-100 flex flex-col items-center justify-center text-center">
-                        <div class="flex flex-col items-start w-full bg-[url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80')] bg-cover bg-center p-8 md:p-12 rounded-2xl relative overflow-hidden text-white shadow-lg">
-                            <div class="absolute inset-0 bg-black/40"></div>
-                            <div class="relative z-10 text-left">
-                                <div class="flex items-baseline gap-2 mb-1">
-                                    <span class="text-3xl md:text-4xl font-semibold tracking-widest uppercase">TASTE</span>
-                                    <span class="text-2xl md:text-3xl font-serif italic lowercase text-[#EBE7E0]" style="font-family: 'Playfair Display', serif;">the</span>
-                                </div>
-                                <span class="text-5xl md:text-6xl font-thin tracking-[0.1em] uppercase">FLOW</span>
+                <div class="relative z-10 flex flex-col items-center text-white w-full max-w-4xl px-8 text-center">
+                    <div class="flex items-baseline justify-center gap-3 mb-[-10px] md:mb-[-20px]">
+                        <span class="text-5xl md:text-8xl font-bold tracking-widest uppercase text-shadow-sm">ENJOY</span>
+                        <span class="text-4xl md:text-7xl font-serif italic lowercase text-[#EBE7E0] text-shadow-sm" style="font-family: 'Playfair Display', serif;">your</span>
+                    </div>
+                    <span class="text-[5rem] md:text-[10rem] font-thin tracking-[0.1em] uppercase leading-none drop-shadow-2xl">PAUSE</span>
+                    
+                    <div class="mt-16 text-[0.60rem] md:text-[0.70rem] tracking-[0.5em] uppercase opacity-80 border-t border-white/20 pt-6 font-medium">
+                        Coffee · Fit Menu · Cosmetics · Artisan Jewelry
+                    </div>
+                </div>
+            </section>
+
+            <!-- 01. Marka Mimarisi (BRAND PILLARS) - YENİ EKLENDİ -->
+            <section class="mb-32 max-w-6xl mx-auto">
+                <div class="flex items-center gap-4 mb-12">
+                    <div class="w-8 h-[1px] bg-[#3E2723]"></div>
+                    <h2 class="text-sm font-semibold tracking-[0.2em] text-[#3E2723]"><span class="text-[#9A7B56] font-light">01.</span> MARKA MİMARİSİ (BRAND PILLARS)</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Pillar 1 -->
+                    <div class="bg-[#FDFCFB] rounded-[2.5rem] p-10 border border-stone-200 shadow-sm hover:shadow-xl transition-shadow group flex flex-col justify-between min-h-[350px]">
+                        <div>
+                            <span class="text-[#9A7B56] text-[10px] font-bold tracking-[0.3em] uppercase mb-4 block">The Core</span>
+                            <h3 class="text-3xl font-thin tracking-widest uppercase text-[#3E2723] mb-4">Vena <span class="font-bold">Coffee</span></h3>
+                            <p class="text-stone-500 font-light text-sm leading-relaxed">Özel kavurma profilleri ve nitelikli kahve deneyimi. Markanın kalbi, insanların bir araya geldiği, yavaşladığı ve "Pause" ettiği ana merkez.</p>
+                        </div>
+                        <div class="mt-8 flex justify-end">
+                            <i data-lucide="coffee" class="w-12 h-12 text-stone-200 group-hover:text-[#9A7B56] transition-colors"></i>
+                        </div>
+                    </div>
+                    <!-- Pillar 2 -->
+                    <div class="bg-[#3E2723] rounded-[2.5rem] p-10 shadow-lg hover:shadow-2xl transition-shadow group flex flex-col justify-between min-h-[350px] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1590080874088-eec648e1eb6a?auto=format&fit=crop&q=80')] bg-cover opacity-10 mix-blend-luminosity"></div>
+                        <div class="relative z-10">
+                            <span class="text-white/50 text-[10px] font-bold tracking-[0.3em] uppercase mb-4 block">Powered by TamLabs</span>
+                            <h3 class="text-3xl font-thin tracking-widest uppercase text-white mb-4">Fit & <span class="font-bold">Functional</span></h3>
+                            <p class="text-stone-300 font-light text-sm leading-relaxed">
+                                Yüksek besin değerine sahip, fonksiyonel ve yenilikçi ürünlerle sağlıklı yaşamı destekleyen bütünsel beslenme serisi. Rafine şeker, gluten ve laktoz içermeyen temiz içerikler.
+                            </p>
+                        </div>
+                        <div class="relative z-10 mt-8 flex justify-end">
+                            <i data-lucide="leaf" class="w-12 h-12 text-white/20 group-hover:text-[#9A7B56] transition-colors"></i>
+                        </div>
+                    </div>
+                    <!-- Pillar 3 -->
+                    <div class="bg-[#EBE7E0] rounded-[2.5rem] p-10 shadow-sm hover:shadow-xl transition-shadow group flex flex-col justify-between min-h-[350px]">
+                        <div>
+                            <span class="text-[#9A7B56] text-[10px] font-bold tracking-[0.3em] uppercase mb-4 block">Botanical Purity</span>
+                            <h3 class="text-3xl font-thin tracking-widest uppercase text-[#3E2723] mb-4">Vena <span class="font-bold">Cosmetics</span></h3>
+                            <p class="text-stone-600 font-light text-sm leading-relaxed">Doğanın gücünü cilde taşıyan, temiz güzellik (Clean Beauty) anlayışıyla geliştirilmiş artisan kozmetik ve bakım serisi.</p>
+                        </div>
+                        <div class="mt-8 flex justify-end">
+                            <i data-lucide="sparkles" class="w-12 h-12 text-white group-hover:text-[#9A7B56] transition-colors drop-shadow-sm"></i>
+                        </div>
+                    </div>
+                    <!-- Pillar 4 -->
+                    <div class="bg-[url('https://images.unsplash.com/photo-1599643478524-fb66f70900b1?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-[2.5rem] p-10 shadow-lg hover:shadow-2xl transition-shadow group flex flex-col justify-between min-h-[350px] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors"></div>
+                        <div class="relative z-10">
+                            <span class="text-[#EBE7E0] text-[10px] font-bold tracking-[0.3em] uppercase mb-4 block">Timeless Craft</span>
+                            <h3 class="text-3xl font-thin tracking-widest uppercase text-white mb-4">Artisan <span class="font-bold">Jewelry</span></h3>
+                            <p class="text-stone-300 font-light text-sm leading-relaxed">Özel üretim, el işçiliğiyle şekillendirilmiş "Raw" (ham) dokulu takılar. Kahvenin ve doğanın asimetrik kusursuzluğunu yansıtan lüks parçalar.</p>
+                        </div>
+                        <div class="relative z-10 mt-8 flex justify-end">
+                            <i data-lucide="gem" class="w-12 h-12 text-white/30 group-hover:text-[#9A7B56] transition-colors"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 02. Tipografi & Renk Bölümleri (Kısaltılmış Grid) -->
+            <div class="grid lg:grid-cols-2 gap-16 mb-32 items-start max-w-6xl mx-auto">
+                <!-- Tipografi -->
+                <div>
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="w-8 h-[1px] bg-[#3E2723]"></div>
+                        <h2 class="text-xs font-bold tracking-[0.3em] text-[#3E2723] uppercase"><span class="text-[#9A7B56] font-light">02.</span> Tipografi 2026</h2>
+                    </div>
+                    <p class="text-stone-500 font-light leading-relaxed mb-8 text-sm">2026 trendleri doğrultusunda aşırı kontrastlı (Super Bold vs Ultra Thin) tipografi kullanımı markanın lüks algısını belirler.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="pl-5 border-l-[3px] border-[#3E2723]">
+                            <h3 class="text-[0.60rem] tracking-[0.25em] font-bold text-stone-400 mb-1">VURGU & İLK KELİME</h3>
+                            <p class="text-2xl font-bold tracking-widest text-[#3E2723] uppercase">Montserrat Bold</p>
+                        </div>
+                        <div class="pl-5 border-l-[3px] border-[#9A7B56]">
+                            <h3 class="text-[0.60rem] tracking-[0.25em] font-bold text-stone-400 mb-1">BAĞLAÇLAR & DUYGU</h3>
+                            <p class="text-3xl italic font-serif text-[#9A7B56]" style="font-family: 'Playfair Display', serif;">Playfair Display</p>
+                        </div>
+                        <div class="pl-5 border-l-[3px] border-stone-200">
+                            <h3 class="text-[0.60rem] tracking-[0.25em] font-bold text-stone-400 mb-1">ANA MESAJ (BÜYÜK PUNTO)</h3>
+                            <p class="text-4xl font-thin tracking-[0.15em] text-[#3E2723] uppercase">Montserrat Thin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Renkler -->
+                <div>
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="w-8 h-[1px] bg-[#3E2723]"></div>
+                        <h2 class="text-xs font-bold tracking-[0.3em] text-[#3E2723] uppercase"><span class="text-[#9A7B56] font-light">03.</span> Renk Paleti</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="h-32 rounded-[1.5rem] p-5 flex flex-col justify-end bg-[#3E2723] shadow-md hover:-translate-y-1 transition-transform">
+                            <p class="font-bold tracking-widest text-xs text-white">DEEP ROAST</p>
+                            <p class="text-[0.60rem] opacity-70 text-white font-mono mt-1 tracking-wider">#3E2723</p>
+                        </div>
+                        <div class="h-32 rounded-[1.5rem] p-5 flex flex-col justify-end bg-[#9A7B56] shadow-md hover:-translate-y-1 transition-transform">
+                            <p class="font-bold tracking-widest text-xs text-white">WARM EARTH</p>
+                            <p class="text-[0.60rem] opacity-70 text-white font-mono mt-1 tracking-wider">#9A7B56</p>
+                        </div>
+                        <div class="h-32 rounded-[1.5rem] p-5 flex flex-col justify-end bg-[#EBE7E0] hover:-translate-y-1 transition-transform">
+                            <p class="font-bold tracking-widest text-xs text-stone-800">STONE GREY</p>
+                            <p class="text-[0.60rem] opacity-70 text-stone-800 font-mono mt-1 tracking-wider">#EBE7E0</p>
+                        </div>
+                        <div class="h-32 rounded-[1.5rem] p-5 flex flex-col justify-end bg-[#FDFCFB] border border-stone-200 hover:-translate-y-1 transition-transform">
+                            <p class="font-bold tracking-widest text-xs text-stone-800">PURE CANVAS</p>
+                            <p class="text-[0.60rem] opacity-70 text-stone-800 font-mono mt-1 tracking-wider">#FDFCFB</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 04. Logo Kullanımı -->
+            <section class="mb-32 max-w-6xl mx-auto">
+                <div class="flex items-center gap-4 mb-12">
+                    <div class="w-8 h-[1px] bg-[#3E2723]"></div>
+                    <h2 class="text-sm font-semibold tracking-[0.2em] text-[#3E2723]"><span class="text-[#9A7B56] font-light">04.</span> LOGO KULLANIMI & GÜVENLİ ALAN</h2>
+                </div>
+
+                <div class="grid md:grid-cols-12 gap-12 items-stretch">
+                    <div class="md:col-span-7 bg-white rounded-[2.5rem] border border-stone-200 p-12 flex items-center justify-center relative overflow-hidden bg-[radial-gradient(#EBE7E0_1px,transparent_1px)] [background-size:20px_20px]">
+                        <div class="relative inline-block border border-dashed border-[#9A7B56] p-10 bg-white/80 backdrop-blur-sm">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-[#9A7B56] font-mono">2x</div>
+                            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-[#9A7B56] font-mono">2x</div>
+                            <div class="absolute top-1/2 -left-6 -translate-y-1/2 text-[10px] text-[#9A7B56] font-mono">2x</div>
+                            <div class="absolute top-1/2 -right-6 -translate-y-1/2 text-[10px] text-[#9A7B56] font-mono">2x</div>
+                            
+                            <div class="flex items-center justify-center">
+                                <img src="https://venacoffeeco.com/wp-content/uploads/2026/03/cropped-vena_logo_atakule_1.png" alt="Vena Logo" class="h-20 w-auto object-contain">
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="pt-4">
-                        <p class="text-stone-500 font-light leading-relaxed mb-10 text-sm">
-                            Yeni marka dilimiz minimalist, temiz ve elit bir görünüme odaklanıyor. Kalın (Medium/SemiBold) ve çok ince (Thin/Light) ağırlıkların kontrastı, araya giren zarif serif italiklerle dengelenerek modern bir tipografik hiyerarşi kuruyor.
-                        </p>
-                        
-                        <div class="space-y-8">
-                            <div>
-                                <h3 class="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">VURGU & İLK KELİME</h3>
-                                <p class="text-xl font-semibold tracking-widest text-[#3E2723]">Montserrat Medium/SemiBold</p>
+                    <div class="md:col-span-5 flex flex-col justify-center space-y-8">
+                        <div>
+                            <h3 class="text-xs font-bold tracking-[0.2em] text-[#3E2723] uppercase mb-2">Güvenli Alan (Clear Space)</h3>
+                            <p class="text-sm font-light text-stone-500 leading-relaxed">Logonun etkisini ve okunabilirliğini korumak için etrafında daima "V" harfinin yüksekliği kadar (2x) boşluk bırakılmalıdır. Logo hiçbir zaman diğer grafik elementlerle sıkıştırılmamalıdır.</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-[#FDFCFB] border border-stone-200 p-4 rounded-xl text-center">
+                                <div class="h-16 flex items-center justify-center">
+                                    <img src="https://venacoffeeco.com/wp-content/uploads/2026/03/cropped-vena_logo_atakule_1.png" alt="Vena Logo" class="h-10 w-auto object-contain">
+                                </div>
+                                <div class="mt-2 text-[10px] text-green-600 font-bold uppercase tracking-wider flex items-center justify-center gap-1"><i data-lucide="check" class="w-3 h-3"></i> DOĞRU</div>
                             </div>
-                            
-                            <div>
-                                <h3 class="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">BAĞLAÇLAR</h3>
-                                <p class="text-xl italic font-serif text-[#9A7B56]" style="font-family: 'Playfair Display', serif;">Playfair Display Italic</p>
-                            </div>
-
-                            <div>
-                                <h3 class="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">ANA MESAJ & ODAK</h3>
-                                <p class="text-3xl font-thin tracking-[0.1em] text-[#3E2723]">Montserrat Thin / Light</p>
-                            </div>
-                            
-                            <div>
-                                <h3 class="text-[0.65rem] tracking-[0.2em] font-semibold text-stone-400 mb-2">İMZA (OPSİYONEL)</h3>
-                                <p class="text-2xl text-[#9A7B56]" style="font-family: 'Great Vibes', cursive;">Great Vibes</p>
+                            <div class="bg-red-50/50 border border-red-100 p-4 rounded-xl text-center relative overflow-hidden">
+                                <div class="h-16 flex items-center justify-center transform scale-[1.3] skew-x-[-10deg] opacity-70">
+                                    <img src="https://venacoffeeco.com/wp-content/uploads/2026/03/cropped-vena_logo_atakule_1.png" alt="Vena Logo" class="h-10 w-auto object-contain grayscale sepia hue-rotate-[-50deg] saturate-[200%] contrast-[150%]">
+                                </div>
+                                <div class="mt-2 text-[10px] text-red-600 font-bold uppercase tracking-wider flex items-center justify-center gap-1"><i data-lucide="x" class="w-3 h-3"></i> YANLIŞ</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Renk Paleti Section -->
-            <section class="mb-24">
+            <!-- 05. Ürün Kimliği & Fit Menu Entegrasyonu (DETAYLI YENİ BÖLÜM) -->
+            <section class="mb-32 max-w-6xl mx-auto border-t border-stone-200 pt-24">
                 <div class="flex items-center gap-4 mb-12">
                     <div class="w-8 h-[1px] bg-[#3E2723]"></div>
-                    <h2 class="text-sm font-semibold tracking-[0.2em] text-[#3E2723]">02. RENK PALETİ</h2>
+                    <h2 class="text-sm font-semibold tracking-[0.2em] text-[#3E2723]"><span class="text-[#9A7B56] font-light">05.</span> ÜRÜN KİMLİĞİ & FİT MENU ENTEGRASYONU</h2>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-                    <!-- Renk 1 -->
-                    <div class="group relative">
-                        <div class="h-32 md:h-48 rounded-[1.5rem] p-5 md:p-6 flex flex-col justify-end transition-transform duration-300 group-hover:-translate-y-1 bg-[#3E2723]">
-                            <p class="font-medium tracking-wide text-sm text-white">Deep Roast</p>
-                            <p class="text-[0.65rem] opacity-70 text-white font-mono mt-1">#3E2723</p>
+                <div class="mb-12">
+                    <p class="text-stone-500 font-light leading-relaxed max-w-4xl text-lg">
+                        "Fit & Functional powered by TamLabs" koleksiyonu, kurumsal kimliğimize tamamen entegre edilmiştir. Düşük glisemik indeks, glutensiz formüller ve temiz içerikler, Vena'nın "Calm Luxury" marka dilini bozmadan; sportif, aydınlık ve güven veren bir tonla sunulur.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- The Shots Category -->
+                    <div class="bg-white border border-stone-200 rounded-[2.5rem] p-10 shadow-sm">
+                        <div class="flex justify-between items-start border-b border-stone-100 pb-6 mb-6">
+                            <div>
+                                <span class="text-[#9A7B56] text-[10px] font-bold tracking-[0.2em] uppercase block mb-1">Detox & Boost</span>
+                                <h3 class="text-2xl font-bold tracking-widest uppercase text-[#3E2723]">The Shots</h3>
+                            </div>
+                            <span class="text-xs font-serif italic text-stone-400">125 cc</span>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex gap-4 group">
+                                <div class="w-16 h-16 rounded-2xl bg-stone-100 flex items-center justify-center shrink-0 border border-stone-200">
+                                    <i data-lucide="leaf" stroke-width="1.5" class="w-6 h-6 text-[#4A5D23]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold uppercase tracking-wider text-sm text-[#3E2723] group-hover:text-[#4A5D23] transition-colors">Clean Green Shot</h4>
+                                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-wider font-light">Kereviz sapı, Lime, Maydanoz, Zencefil, Spirulina</p>
+                                    <p class="text-[10px] text-stone-400 mt-1 leading-relaxed">Toksinlerden arındırır, metabolizmayı hızlandırır.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 group">
+                                <div class="w-16 h-16 rounded-2xl bg-stone-100 flex items-center justify-center shrink-0 border border-stone-200">
+                                    <i data-lucide="zap" stroke-width="1.5" class="w-6 h-6 text-[#8B0000]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold uppercase tracking-wider text-sm text-[#3E2723] group-hover:text-[#8B0000] transition-colors">Hangover Shot</h4>
+                                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-wider font-light">Siyah havuç, Havuç, Pancar, Zencefil, Limon</p>
+                                    <p class="text-[10px] text-stone-400 mt-1 leading-relaxed">Karaciğeri destekler, yorgunluğu azaltır.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 group">
+                                <div class="w-16 h-16 rounded-2xl bg-stone-100 flex items-center justify-center shrink-0 border border-stone-200">
+                                    <i data-lucide="shield-plus" stroke-width="1.5" class="w-6 h-6 text-[#D2691E]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold uppercase tracking-wider text-sm text-[#3E2723] group-hover:text-[#D2691E] transition-colors">Immunity Shot</h4>
+                                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-wider font-light">Portakal, Zencefil, Zerdeçal, Limon, Karabiber</p>
+                                    <p class="text-[10px] text-stone-400 mt-1 leading-relaxed">Güçlü anti-inflamatuar, bağışıklık koruması.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Renk 2 -->
-                    <div class="group relative">
-                        <div class="h-32 md:h-48 rounded-[1.5rem] p-5 md:p-6 flex flex-col justify-end transition-transform duration-300 group-hover:-translate-y-1 bg-[#9A7B56]">
-                            <p class="font-medium tracking-wide text-sm text-white">Warm Earth</p>
-                            <p class="text-[0.65rem] opacity-70 text-white font-mono mt-1">#9A7B56</p>
+
+                    <!-- Salty Crackers & Sweet Bites -->
+                    <div class="space-y-8">
+                        <div class="bg-[#3E2723] text-white rounded-[2.5rem] p-10 shadow-lg relative overflow-hidden">
+                            <div class="absolute right-0 top-0 opacity-10"><i data-lucide="wheat" class="w-48 h-48"></i></div>
+                            <div class="relative z-10">
+                                <span class="text-white/50 text-[10px] font-bold tracking-[0.2em] uppercase block mb-1">Guilt-Free Crunch</span>
+                                <h3 class="text-2xl font-bold tracking-widest uppercase mb-6">Salty Crackers</h3>
+                                <div class="space-y-4">
+                                    <div class="border-l-2 border-[#9A7B56] pl-4">
+                                        <div class="flex justify-between items-baseline"><h4 class="text-sm font-bold uppercase tracking-wider">Keto Pesto Chips</h4><span class="text-[10px] uppercase font-mono text-[#9A7B56]">620 Kcal / 22g PR</span></div>
+                                        <p class="text-[9px] text-white/60 uppercase tracking-widest mt-1">Glutensiz Un, Tapyoka, Fesleğen, Parmesan</p>
+                                    </div>
+                                    <div class="border-l-2 border-white/20 pl-4">
+                                        <div class="flex justify-between items-baseline"><h4 class="text-sm font-bold uppercase tracking-wider">Keto Grissini</h4><span class="text-[10px] uppercase font-mono text-[#9A7B56]">514 Kcal / 8g PR</span></div>
+                                        <p class="text-[9px] text-white/60 uppercase tracking-widest mt-1">Nohut Unu, Glutensiz Un, Yumurta, Susam</p>
+                                    </div>
+                                    <div class="border-l-2 border-white/20 pl-4">
+                                        <div class="flex justify-between items-baseline"><h4 class="text-sm font-bold uppercase tracking-wider">Pizza Twist Cracker</h4><span class="text-[10px] uppercase font-mono text-[#9A7B56]">450 Kcal / 6g PR</span></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Renk 3 -->
-                    <div class="group relative">
-                        <div class="h-32 md:h-48 rounded-[1.5rem] p-5 md:p-6 flex flex-col justify-end transition-transform duration-300 group-hover:-translate-y-1 bg-[#EBE7E0]">
-                            <p class="font-medium tracking-wide text-sm text-stone-800">Stone Grey</p>
-                            <p class="text-[0.65rem] opacity-70 text-stone-800 font-mono mt-1">#EBE7E0</p>
-                        </div>
-                    </div>
-                    <!-- Renk 4 -->
-                    <div class="group relative">
-                        <div class="h-32 md:h-48 rounded-[1.5rem] p-5 md:p-6 flex flex-col justify-end transition-transform duration-300 group-hover:-translate-y-1 bg-[#FDFCFB] border border-stone-200">
-                            <p class="font-medium tracking-wide text-sm text-stone-800">Pure Canvas</p>
-                            <p class="text-[0.65rem] opacity-70 text-stone-800 font-mono mt-1">#FDFCFB</p>
+
+                        <div class="bg-[#EBE7E0] text-[#3E2723] rounded-[2.5rem] p-10 shadow-sm relative overflow-hidden">
+                            <span class="text-stone-500 text-[10px] font-bold tracking-[0.2em] uppercase block mb-1">Sweet Cravings</span>
+                            <h3 class="text-2xl font-bold tracking-widest uppercase mb-6">Protein Bites</h3>
+                            <div class="space-y-4">
+                                <div class="bg-white/60 p-3 rounded-xl backdrop-blur-sm border border-white flex justify-between items-center">
+                                    <div>
+                                        <h4 class="text-xs font-bold uppercase tracking-wider">Tahini Twist Bite</h4>
+                                        <p class="text-[8px] text-stone-500 uppercase tracking-widest mt-0.5">Hurma, Kaju, Kakao, Hindistan Cevizi</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-xs font-bold block">250 Kcal</span>
+                                        <span class="text-[8px] font-bold text-[#9A7B56] uppercase">10g Protein</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -183,389 +358,881 @@
 
 
         <!-- ========================================== -->
-        <!-- DİJİTAL KİMLİK BÖLÜMÜ -->
+        <!-- DİJİTAL KİMLİK & İÇERİK MATRİSİ (30 ŞABLON) -->
         <!-- ========================================== -->
-        <div id="section-digital" class="max-w-6xl mx-auto px-6 animate-fade-in block">
+        <div id="section-digital" class="max-w-7xl mx-auto px-6 animate-fade-in hidden">
             
-            <div class="mb-24 text-center max-w-3xl mx-auto">
-                <h2 class="text-4xl font-thin tracking-widest text-[#3E2723] uppercase mb-6">
-                    <span class="font-semibold block mb-2">Dijital Ekosistem</span>
-                    Kullanım Kılavuzu
+            <div class="mb-16 text-center max-w-4xl mx-auto mt-10">
+                <h1 class="text-[0.65rem] tracking-[0.4em] font-bold text-[#9A7B56] uppercase mb-4">Ultimate Content Matrix</h1>
+                <h2 class="text-4xl md:text-5xl font-thin tracking-widest text-[#3E2723] uppercase mb-6">
+                    <span class="font-bold block mb-2">30 Şablonluk</span>
+                    Dijital Ekosistem
                 </h2>
-                <div class="w-16 h-[1px] bg-[#9A7B56] mx-auto mb-6"></div>
-                <p class="text-stone-500 font-light leading-relaxed text-lg">
-                    Markamız sıradan bir kahve dükkanı değil; prestijli, incelikli ve bilinçli bir yaşam tarzı sunar. Bu hissiyatı sosyal medyaya taşımak için "editorial" (dergi kapağı) tarzı boşluk kullanımları, asimetrik tipografi ve sinematografik renk kuralları uygulanmalıdır.
+                <div class="w-16 h-[2px] bg-[#9A7B56] mx-auto mb-6"></div>
+                <p class="text-stone-500 font-light leading-relaxed text-sm md:text-base">
+                    Kahve, Fit Menu (TamLabs), Kozmetik ve Artisan Takı... Dört farklı dünyanın tek bir "Calm Luxury" estetiğinde erimesi. Tüm marka iletişimi <b>Eğitici, İlham Verici, Etkileşim ve Promosyon</b> olmak üzere 4 ana eksende, tam 30 farklı şablon formatında eksiksiz tasarlanmıştır.
                 </p>
             </div>
 
-            <div class="space-y-32">
-                
-                <!-- 1. Instagram Post (Ana İmaj) -->
+            <!-- ============================================== -->
+            <!-- 4 MARKANIN SEAMLESS CAROUSEL EKOSİSTEMİ -->
+            <!-- ============================================== -->
+            <section class="mb-32 border-t border-stone-200 pt-20">
+                <div class="mb-16 text-center max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-widest text-[#3E2723] uppercase mb-4">Masterclass Carousels</h2>
+                    <p class="text-stone-500 font-light leading-relaxed text-sm md:text-base">
+                        2026'nın en etkili Instagram formatı olan <b>"Edge-to-Edge Seamless Carousel"</b> (görsellerin kesintisiz akışı). <br><span class="text-[#9A7B56] font-bold text-[10px] uppercase tracking-widest">Sağa doğru kaydırın / Scroll Right &rarr;</span>
+                    </p>
+                </div>
+
+                <div class="space-y-24">
+                    <!-- 1. VENA COFFEE CO. CAROUSEL -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 px-4 md:px-0">
+                            <i data-lucide="coffee" class="w-5 h-5 text-[#9A7B56]"></i>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">1. Vena Coffee Co. <span class="font-light text-stone-400 capitalize tracking-normal">| The Roasting Art</span></h3>
+                        </div>
+                        <div class="flex overflow-x-auto seamless-carousel hide-scrollbar snap-x snap-mandatory rounded-[2rem] shadow-xl">
+                            <div class="w-[85vw] md:w-[450px] h-[550px] shrink-0 snap-center bg-cover bg-left relative border-r border-white/20 flex flex-col justify-between p-10" style="background-image: url('https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?auto=format&fit=crop&q=80'); background-size: 200% 100%;">
+                                <div class="absolute inset-0 bg-gradient-to-r from-black/90 to-black/40"></div>
+                                <span class="relative z-10 text-[9px] uppercase tracking-[0.4em] font-bold text-[#9A7B56]">Chapter 01</span>
+                                <div class="relative z-10 text-white">
+                                    <span class="text-4xl font-bold tracking-widest uppercase block mb-[-5px]">MASTER</span>
+                                    <span class="text-5xl font-thin tracking-widest uppercase block">CRAFT</span>
+                                </div>
+                            </div>
+                            <div class="w-[85vw] md:w-[450px] h-[550px] shrink-0 snap-center bg-cover bg-right relative flex flex-col justify-center p-10" style="background-image: url('https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?auto=format&fit=crop&q=80'); background-size: 200% 100%;">
+                                <div class="absolute inset-0 bg-black/60"></div>
+                                <div class="relative z-10 text-white max-w-[250px] ml-auto">
+                                    <h4 class="text-2xl font-serif italic text-[#9A7B56] mb-4">the process</h4>
+                                    <p class="text-xs font-light leading-relaxed text-stone-300">Our roasting philosophy respects the origin. Every batch is carefully monitored to unlock the hidden, delicate notes inside the raw bean.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. VENA FIT MENU (TAMLABS) CAROUSEL -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 px-4 md:px-0">
+                            <i data-lucide="leaf" class="w-5 h-5 text-[#9A7B56]"></i>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">2. Fit & Functional <span class="font-light text-stone-400 capitalize tracking-normal">| The Shots</span></h3>
+                        </div>
+                        <div class="flex overflow-x-auto seamless-carousel hide-scrollbar snap-x snap-mandatory rounded-[2rem] shadow-xl">
+                            <div class="w-[85vw] md:w-[450px] h-[550px] shrink-0 snap-center bg-cover bg-left relative border-r border-stone-800/10 flex flex-col justify-end p-10" style="background-image: url('https://images.unsplash.com/photo-1596755389378-c11d6d821eaa?auto=format&fit=crop&q=80'); background-size: 200% 100%;">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#FDFCFB]/90 to-transparent"></div>
+                                <div class="relative z-10 text-[#3E2723]">
+                                    <span class="text-[9px] uppercase tracking-[0.4em] font-bold text-stone-500 mb-2 block">Powered by TamLabs</span>
+                                    <span class="text-4xl font-bold tracking-widest uppercase block mb-[-5px]">DAILY</span>
+                                    <span class="text-5xl font-thin tracking-widest uppercase block text-[#4A5D23]">DETOX</span>
+                                </div>
+                            </div>
+                            <div class="w-[85vw] md:w-[450px] h-[550px] shrink-0 snap-center bg-cover bg-right relative flex flex-col justify-center p-10" style="background-image: url('https://images.unsplash.com/photo-1596755389378-c11d6d821eaa?auto=format&fit=crop&q=80'); background-size: 200% 100%;">
+                                <div class="absolute inset-0 bg-[#FDFCFB]/80 backdrop-blur-sm"></div>
+                                <div class="relative z-10 text-[#3E2723] space-y-6 w-full">
+                                    <div class="flex justify-between items-center border-b border-stone-200 pb-3">
+                                        <div><h4 class="text-sm font-bold tracking-widest uppercase text-[#4A5D23]">Clean Green</h4><p class="text-[9px] text-stone-500 mt-1 uppercase tracking-wider">Celery, Lime, Spirulina</p></div>
+                                        <span class="text-xs font-serif italic text-stone-400">125cc</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-stone-200 pb-3">
+                                        <div><h4 class="text-sm font-bold tracking-widest uppercase text-[#8B0000]">Hangover Shot</h4><p class="text-[9px] text-stone-500 mt-1 uppercase tracking-wider">Beetroot, Ginger, Lemon</p></div>
+                                        <span class="text-xs font-serif italic text-stone-400">125cc</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-stone-200 pb-3">
+                                        <div><h4 class="text-sm font-bold tracking-widest uppercase text-[#D2691E]">Immunity</h4><p class="text-[9px] text-stone-500 mt-1 uppercase tracking-wider">Orange, Turmeric, Pepper</p></div>
+                                        <span class="text-xs font-serif italic text-stone-400">125cc</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================== -->
+            <!-- PILLAR 1: EĞİTİCİ (EDUCATE) - 7 ŞABLON -->
+            <!-- ============================================== -->
+            <div class="mb-16 flex items-center justify-between border-b border-stone-200 pb-4 mt-20">
+                <h3 class="text-3xl font-bold tracking-widest uppercase text-[#3E2723]">1. EĞİTİCİ <span class="font-thin text-stone-400">| Educate</span></h3>
+                <span class="text-xs tracking-widest text-[#9A7B56] font-bold uppercase border border-[#9A7B56]/30 px-3 py-1 rounded-full">7 Şablon</span>
+            </div>
+            
+            <div class="space-y-24 mb-32">
+                <!-- 1.1 Detox Shot Infographic -->
                 <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
                     <div class="md:col-span-5 order-2 md:order-1">
-                        <div class="flex items-center gap-4 mb-8">
-                            <span class="text-4xl font-thin text-[#EBE7E0]">01</span>
-                            <div>
-                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
-                                    <i data-lucide="layout" class="w-3.5 h-3.5"></i> Akış & Temel Duruş
-                                </h3>
-                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Kare ve Dikey Gönderiler</p>
-                            </div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">1.1</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">İçerik (Ingredients) Paneli</h3>
                         </div>
-                        <p class="text-stone-500 font-light leading-relaxed mb-6">
-                            Vena'nın imza görünümü. Görselin sadece boş ve sakin alanları metin için kullanılır. Hedef kitleye bağırmayan, fısıldayan bir lüks hissiyatı hedeflenir.
-                        </p>
-                        <ul class="space-y-4 text-sm font-light text-stone-600">
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Tipografi daima <b>sol hizalı</b> veya nesnenin formuna göre <b>sağ alt köşe</b> odaklıdır.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Ağırlıklar: Kalın (SemiBold) &gt; İtalik (Playfair) &gt; Dev İnce (Thin).</span>
-                            </li>
-                        </ul>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Fit Menü'deki <b>Clean Green Shot</b> ürününü içerikleriyle anlatan temiz infografik yapı.</p>
                     </div>
                     <div class="md:col-span-7 order-1 md:order-2">
-                        <div class="bg-white p-6 pb-16 rounded-[2.5rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] border border-stone-100 relative group transition-all hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]">
-                            <div class="aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-3xl relative overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent"></div>
-                                <div class="absolute bottom-16 left-10 text-white">
-                                    <div class="flex items-baseline gap-2 mb-1">
-                                        <span class="text-5xl font-semibold tracking-widest uppercase shadow-black/50 drop-shadow-md">ENJOY</span>
-                                        <span class="text-4xl font-serif italic lowercase text-stone-200 shadow-black/50 drop-shadow-md" style="font-family: 'Playfair Display', serif;">your</span>
-                                    </div>
-                                    <span class="text-[5rem] font-thin tracking-[0.12em] uppercase leading-[0.85] block -ml-1 drop-shadow-lg">PAUSE</span>
+                        <div class="aspect-[4/5] md:aspect-video bg-white rounded-[2rem] border border-stone-200 shadow-xl flex overflow-hidden">
+                            <div class="w-1/2 p-8 flex flex-col justify-center relative">
+                                <span class="text-[#9A7B56] text-[8px] tracking-[0.25em] uppercase font-bold mb-2">TamLabs Collab</span>
+                                <span class="text-2xl font-bold tracking-widest uppercase text-[#3E2723]">CLEAN</span>
+                                <span class="text-3xl font-thin tracking-widest uppercase text-[#3E2723] block -mt-1">GREEN SHOT</span>
+                                <div class="w-8 h-[1px] bg-[#9A7B56] my-4"></div>
+                                <div class="grid grid-cols-2 gap-2 mt-2">
+                                    <div><span class="text-xl font-serif italic text-[#9A7B56]">125</span> <span class="text-[8px] uppercase text-stone-400">cc</span></div>
+                                    <div><span class="text-xl font-serif italic text-[#9A7B56]">100%</span> <span class="text-[8px] uppercase text-stone-400">Vegan</span></div>
                                 </div>
+                                <p class="text-[9px] text-stone-500 font-light uppercase tracking-wider leading-relaxed mt-4">Kereviz sapı, Lime, Maydanoz, Zencefil, Spirulina.</p>
                             </div>
+                            <div class="w-1/2 bg-[url('https://images.unsplash.com/photo-1615486171448-4fd187c38c82?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2. Reels (Video) Kapağı -->
-                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-                    <div class="md:col-span-6 flex justify-center lg:justify-start">
-                        <div class="w-[300px] h-[600px] bg-stone-900 rounded-[3rem] shadow-2xl relative overflow-hidden border-[6px] border-[#3E2723] ring-4 ring-[#EBE7E0]">
-                            <!-- Video Background -->
-                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495474472201-416b22b102ce?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-80 mix-blend-luminosity"></div>
-                            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90"></div>
-                            
-                            <!-- Instagram Safe Zone Mockup -->
-                            <div class="absolute inset-x-0 bottom-0 h-40 border-t border-dashed border-white/20"></div>
-                            <div class="absolute right-4 bottom-24 flex flex-col gap-4 text-white/80">
-                                <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
-                                <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
-                                <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
-                            </div>
-
-                            <!-- Cinematic Play Button & Typography -->
-                            <div class="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-6 mt-12">
-                                <div class="flex items-baseline gap-2 mb-1">
-                                    <span class="text-3xl font-semibold tracking-widest uppercase">FEEL</span>
-                                    <span class="text-2xl font-serif italic lowercase text-[#9A7B56]" style="font-family: 'Playfair Display', serif;">the</span>
-                                </div>
-                                <span class="text-[3.5rem] font-thin tracking-widest uppercase leading-none block">AROMA</span>
-                                <i data-lucide="play-circle" stroke-width="1" class="w-12 h-12 mt-8 opacity-70 hover:opacity-100 transition-opacity cursor-pointer"></i>
-                            </div>
-                            
-                            <div class="absolute top-8 left-0 w-full text-center">
-                                <span class="bg-black/40 backdrop-blur-md text-[9px] tracking-[0.3em] font-medium text-white px-3 py-1.5 rounded-full uppercase">Sinematik Yaklaşım</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:col-span-6">
-                        <div class="flex items-center gap-4 mb-8">
-                            <span class="text-4xl font-thin text-[#EBE7E0]">02</span>
-                            <div>
-                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
-                                    <i data-lucide="play-circle" class="w-3.5 h-3.5"></i> Video & Hareket
-                                </h3>
-                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Reels Kapak Tasarımları</p>
-                            </div>
-                        </div>
-                        <p class="text-stone-500 font-light leading-relaxed mb-6">
-                            Video kapaklarında (Reels), Instagram arayüzünün (ikonlar, açıklama metni) fontları kapatmaması kritik öneme sahiptir. Bu nedenle "Güvenli Alan" (Safe Zone) kuralları katı bir şekilde uygulanır.
-                        </p>
-                        <ul class="space-y-4 text-sm font-light text-stone-600">
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Metin bloğu, videonun tam merkezine veya ekranın orta-üst (mid-top) kısmına yerleştirilir. Alt kısımdan kaçınılır.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Haraketli görsellerin üzerine her zaman siyah/koyu kahve bir 'Gradient' veya '%20 Opak Siyah Overlay' eklenerek kontrast arttırılır.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Tipografi ortalandığında tüm blok "Ortadan Hizalı" (Text-align: center) kurgulanır.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 3. Ürün & Menü Odaklı -->
-                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-                    <div class="md:col-span-5 order-2 md:order-1">
-                        <div class="flex items-center gap-4 mb-8">
-                            <span class="text-4xl font-thin text-[#EBE7E0]">03</span>
-                            <div>
-                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
-                                    <i data-lucide="coffee" class="w-3.5 h-3.5"></i> Odak & Detay
-                                </h3>
-                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Ürün ve Menü Duyuruları</p>
-                            </div>
-                        </div>
-                        <p class="text-stone-500 font-light leading-relaxed mb-6">
-                            Yeni bir çekirdek, özel bir demleme yöntemi veya imza bir içecek tanıtılırken odak daima ürünün detayındadır. Ürün ambalajı veya kahve fincanı kompozisyonun "kahramanı" olur.
-                        </p>
-                        <ul class="space-y-4 text-sm font-light text-stone-600">
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Fotoğraflarda "Macro" veya detay çekimler kullanılır. Arka plan mutlaka blur (Boke efekti) veya düz bir renk olmalıdır.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Ürünü destekleyen kısa, zarif bir imza metni (Örn: Signature Blend) ürünün yan boşluğuna yerleştirilir.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="md:col-span-7 order-1 md:order-2">
-                        <div class="aspect-square bg-[#EBE7E0] rounded-[2.5rem] relative overflow-hidden group shadow-lg border border-stone-200 p-8 flex flex-col justify-between">
-                            <!-- Product Layout Mock -->
-                            <div class="flex justify-between items-start w-full relative z-10">
-                                <div class="text-[#3E2723] pt-4">
-                                    <div class="flex items-baseline gap-1.5 mb-1">
-                                        <span class="text-3xl font-semibold tracking-widest uppercase">SIGNATURE</span>
-                                    </div>
-                                    <span class="text-4xl font-thin tracking-widest uppercase block mb-6">BLEND</span>
-                                    <div class="w-8 h-[1px] bg-[#9A7B56]"></div>
-                                    <p class="text-[10px] uppercase tracking-[0.2em] font-semibold mt-6 text-[#9A7B56]">Ethiopian & Colombian Origin</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Image positioned radically to the bottom right -->
-                            <div class="absolute -bottom-12 -right-12 w-3/4 h-3/4 bg-[url('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-tl-[6rem] shadow-2xl transition-transform duration-700 group-hover:scale-105"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. Manifesto & Alıntı -->
+                <!-- 1.2 Besin Değerleri (Macro Facts) -->
                 <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
                     <div class="md:col-span-7">
-                        <div class="aspect-square bg-[#3E2723] rounded-[2.5rem] relative overflow-hidden shadow-2xl p-12 lg:p-16 flex flex-col justify-center text-center">
-                            <i data-lucide="quote" class="w-32 h-32 absolute -top-6 -left-6 text-[#9A7B56] opacity-20 rotate-180"></i>
-                            <i data-lucide="quote" class="w-32 h-32 absolute -bottom-6 -right-6 text-[#9A7B56] opacity-20"></i>
-                            
-                            <h4 class="text-[#EBE7E0] font-thin text-2xl md:text-4xl leading-[1.6] tracking-wide relative z-10 font-serif" style="font-family: 'Playfair Display', serif;">
-                                "Coffee is not just a beverage, <br />
-                                <span class="font-bold text-white italic">it's the art of</span> pausing time."
-                            </h4>
-                            
-                            <div class="mt-12 flex flex-col items-center">
-                                <div class="w-[1px] h-12 bg-[#9A7B56] mb-6"></div>
-                                <span class="text-[#9A7B56] text-[10px] tracking-[0.3em] font-bold uppercase">Vena Philosophy</span>
+                        <div class="aspect-[4/5] md:aspect-video bg-[#3E2723] rounded-[2rem] p-10 relative overflow-hidden flex items-center shadow-lg">
+                            <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1590080874088-eec648e1eb6a?auto=format&fit=crop&q=80')] bg-cover mix-blend-luminosity"></div>
+                            <div class="relative z-10 w-full flex justify-between items-center text-white">
+                                <div>
+                                    <span class="text-[10px] tracking-widest uppercase text-[#9A7B56] font-bold block mb-2">Macro Values</span>
+                                    <h4 class="text-3xl font-thin tracking-widest uppercase">KETO PESTO<br/><span class="font-bold">CHIPS</span></h4>
+                                    <p class="text-[9px] uppercase tracking-widest text-white/50 mt-4 max-w-[200px] leading-relaxed">Glutensiz un, Tapyoka, Fesleğen, Parmesan.</p>
+                                </div>
+                                <div class="text-right border-l border-white/20 pl-6">
+                                    <div class="mb-4"><span class="text-4xl font-serif italic text-white">620</span><span class="text-[10px] uppercase ml-1 opacity-70">Kcal</span></div>
+                                    <div><span class="text-4xl font-serif italic text-[#9A7B56]">22g</span><span class="text-[10px] uppercase ml-1 opacity-70">Protein</span></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="md:col-span-5">
-                        <div class="flex items-center gap-4 mb-8">
-                            <span class="text-4xl font-thin text-[#EBE7E0]">04</span>
-                            <div>
-                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
-                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Marka Sesi
-                                </h3>
-                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Manifesto ve Alıntılar</p>
-                            </div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">1.2</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Macro Veri Kartı</h3>
                         </div>
-                        <p class="text-stone-500 font-light leading-relaxed mb-6">
-                            Markanın felsefesini, duruşunu veya değerlerini anlatan sadece metin odaklı (typographic) gönderilerde imaj kullanılmaz. Metnin kendisi bir görsele dönüşür.
-                        </p>
-                        <ul class="space-y-4 text-sm font-light text-stone-600">
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Arka plan daima marka paletindeki düz ve koyu renklerden (Deep Roast #3E2723) seçilir.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Ana metin için "Playfair Display", vurgulanmak istenen kilit kelimeler için "Italic" kullanılır.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Çok geniş kenar boşlukları bırakılarak metnin "nefes alması" sağlanır. Asla kenarlara yaklaşılmaz.</span>
-                            </li>
-                        </ul>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Fit Menü'deki ketojenik <b>Keto Pesto Chips</b> gibi ürünlerin makro besin değerlerini devasa puntolarla anlatan dark-mode tasarım.</p>
                     </div>
                 </div>
 
-                <!-- 5. Carousel (Daha Minimal) -->
-                <div class="border-t border-stone-200 pt-24 mt-24">
-                    <div class="flex flex-col items-center text-center mb-16">
-                        <i data-lucide="layers" stroke-width="1" class="w-8 h-8 text-[#9A7B56] mb-4"></i>
-                        <h3 class="text-xl font-medium tracking-wide text-[#3E2723] mb-2">05. Kaydırmalı Hikaye Anlatıcılığı (Carousel)</h3>
-                        <p class="text-stone-500 font-light max-w-2xl">Bölünmüş ekranlar ve birbirine bağlanan grafik elemanlarla kullanıcının kaydırma (swipe) isteğini tetikleyen editorial yaklaşım.</p>
-                    </div>
-                    
-                    <div class="bg-[#FDFCFB] p-8 md:p-16 rounded-[3rem] shadow-sm border border-stone-100 flex gap-6 overflow-x-auto no-scrollbar snap-x relative">
-                        <!-- 1. Slide -->
-                        <div class="w-[85%] md:w-[60%] shrink-0 aspect-square bg-[#3E2723] rounded-[2rem] relative p-10 flex flex-col justify-center text-white snap-center overflow-hidden">
-                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?auto=format&fit=crop&q=80')] mix-blend-overlay opacity-20 bg-cover"></div>
-                            <div class="relative z-10">
-                                <div class="flex items-baseline gap-2 mb-1">
-                                    <span class="text-3xl font-semibold tracking-widest uppercase">DISCOVER</span>
-                                    <span class="text-2xl font-serif italic lowercase text-[#9A7B56]" style="font-family: 'Playfair Display', serif;">the</span>
-                                </div>
-                                <span class="text-5xl font-thin tracking-[0.1em] uppercase">ROAST</span>
-                            </div>
-                            <div class="absolute bottom-8 right-8 text-[#9A7B56] text-[10px] tracking-widest font-bold uppercase flex items-center gap-2">
-                                Swipe <span class="text-lg leading-none">&rarr;</span>
-                            </div>
-                        </div>
-                        <!-- 2. Slide -->
-                        <div class="w-[85%] md:w-[60%] shrink-0 aspect-square bg-[#EBE7E0] rounded-[2rem] relative p-12 flex flex-col justify-center text-[#3E2723] snap-center">
-                            <h4 class="text-2xl font-semibold mb-6 tracking-wide uppercase">The Art of <br/>Roasting</h4>
-                            <div class="w-12 h-[1px] bg-[#9A7B56] mb-8"></div>
-                            <p class="font-light text-base leading-[2] tracking-wide text-stone-600">
-                                Using traditional roasting methods, we unlock the hidden notes inside every single bean. It's not just a process; it's a pursuit of perfection.
-                            </p>
-                            <div class="absolute top-12 right-12 text-stone-300 font-serif italic text-6xl">02</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. Patisserie & Pairing (TATLI) -->
-                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-                    <div class="md:col-span-6 flex justify-center lg:justify-start order-2 md:order-1">
-                        <div class="aspect-[3/4] w-full bg-[#3E2723] rounded-[3rem] shadow-2xl relative overflow-hidden group">
-                            <!-- Image of croissant / dessert -->
-                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495147466023-2ce6c9b4eb88?auto=format&fit=crop&q=80')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"></div>
-                            
-                            <!-- Soft gradient overlay -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/30 to-transparent"></div>
-                            
-                            <!-- Typography -->
-                            <div class="absolute bottom-12 left-10 text-white z-10">
-                                <div class="flex items-baseline gap-2 mb-1">
-                                    <span class="text-4xl font-semibold tracking-widest uppercase shadow-black/50 drop-shadow-sm">SWEETEN</span>
-                                    <span class="text-3xl font-serif italic lowercase text-[#9A7B56] shadow-black/50 drop-shadow-sm" style="font-family: 'Playfair Display', serif;">the</span>
-                                </div>
-                                <span class="text-[4rem] font-thin tracking-widest uppercase leading-none block drop-shadow-md">MOMENT</span>
-                                <div class="w-10 h-[1px] bg-white/50 mt-6 mb-4"></div>
-                                <span class="text-xs tracking-[0.3em] font-light uppercase text-white/80">Artisan Pastries</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:col-span-6 order-1 md:order-2">
-                        <div class="flex items-center gap-4 mb-8">
-                            <span class="text-4xl font-thin text-[#EBE7E0]">06</span>
-                            <div>
-                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
-                                    <i data-lucide="coffee" class="w-3.5 h-3.5"></i> Lezzet & Eşleşme
-                                </h3>
-                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Patisserie & Tatlılar</p>
-                            </div>
-                        </div>
-                        <p class="text-stone-500 font-light leading-relaxed mb-6">
-                            Kahve deneyimini tamamlayan imza tatlılarımız, artisan keklerimiz ve kruvasanlarımız için tasarlanan gönderi şablonu. Lezzeti ön plana çıkaran, iştah açıcı (appetizing) ve sıcak bir kompozisyon.
-                        </p>
-                        <ul class="space-y-4 text-sm font-light text-stone-600">
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Görsellerde daha sıcak ve zengin tonlar kullanılır. Ürünün dokusu (kruvasan katmanları, pudra şekeri vb.) net olarak vurgulanır.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Tipografi, alt bölüme konumlandırılarak "SWEETEN the MOMENT" gibi İngilizce iştah açıcı sloganlarla desteklenir.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 7. Story / Lifestyle -->
+                <!-- 1.3 Demleme Rehberi (Brewing Tips) -->
                 <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
                     <div class="md:col-span-5 order-2 md:order-1">
-                        <div class="flex items-center gap-4 mb-8">
-                            <span class="text-4xl font-thin text-[#EBE7E0]">07</span>
-                            <div>
-                                <h3 class="text-xs font-bold tracking-[0.2em] text-[#9A7B56] uppercase mb-1 flex items-center gap-2">
-                                    <i data-lucide="smartphone" class="w-3.5 h-3.5"></i> Hikaye & Yaşam Tarzı
-                                </h3>
-                                <p class="text-xl font-medium tracking-wide text-[#3E2723]">Lifestyle Story'ler</p>
-                            </div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">1.3</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Demleme & İpuçları</h3>
                         </div>
-                        <p class="text-stone-500 font-light leading-relaxed mb-6">
-                            Müşterilerin dükkan içindeki anları, sabah ritüelleri veya barista detayları gibi dikey (9:16) formatlı "Lifestyle" hikaye kullanımları.
-                        </p>
-                        <ul class="space-y-4 text-sm font-light text-stone-600">
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Tipografi merkeze veya üst boşluğa yerleştirilir. Metinler kısa, zarif ve duyguyu yansıtacak şekilde İngilizce olmalıdır (Örn: MORNING rituals).</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="check-circle" stroke-width="1.5" class="text-[#9A7B56] w-[18px] h-[18px] shrink-0 mt-0.5"></i>
-                                <span>Alt kısımlar etkileşim butonları (Link, Anket vb.) veya Instagram arayüzü için temiz bırakılır.</span>
-                            </li>
-                        </ul>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Evde kahve demleyenlere adım adım (1-2-3) rehberlik eden, "Playfair Display" rakamlarının görsel bir elemente dönüştüğü şablon.</p>
                     </div>
-                    <div class="md:col-span-7 order-1 md:order-2 flex justify-center">
-                        <div class="w-[320px] h-[570px] bg-[#EBE7E0] rounded-[2.5rem] shadow-xl relative overflow-hidden border-[6px] border-white">
-                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521017430205-c2502844c6d6?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
-                            <div class="absolute inset-0 bg-black/10"></div>
-                            <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent"></div>
-                            
-                            <div class="absolute top-12 w-full text-center text-white px-6">
-                                <div class="flex justify-center items-baseline gap-2 mb-1">
-                                    <span class="text-3xl font-semibold tracking-widest uppercase">MORNING</span>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-square bg-white rounded-[2rem] border border-stone-200 shadow-xl flex flex-col p-10">
+                            <div class="flex justify-between items-end mb-8 border-b border-stone-100 pb-4">
+                                <div>
+                                    <span class="text-2xl font-bold tracking-widest uppercase text-[#3E2723]">V60</span>
+                                    <span class="text-xl font-serif italic lowercase text-[#9A7B56] ml-2">method</span>
                                 </div>
-                                <span class="text-5xl font-serif italic lowercase text-[#EBE7E0] drop-shadow-md" style="font-family: 'Playfair Display', serif;">rituals</span>
+                                <i data-lucide="coffee" class="w-6 h-6 text-stone-300"></i>
                             </div>
-                            
-                            <!-- Instagram Story UI Mockup -->
-                            <div class="absolute top-4 left-4 right-4 flex gap-1">
-                                <div class="h-0.5 bg-white rounded-full flex-1"></div>
-                                <div class="h-0.5 bg-white/40 rounded-full flex-1"></div>
-                                <div class="h-0.5 bg-white/40 rounded-full flex-1"></div>
+                            <div class="space-y-6 flex-1">
+                                <div class="flex gap-4 items-start"><span class="text-4xl font-serif italic text-stone-200 leading-none">1</span><p class="text-xs text-stone-500 font-light mt-1">Suyu 93°C'ye ısıtın ve kağıt filtreyi ıslatın.</p></div>
+                                <div class="flex gap-4 items-start"><span class="text-4xl font-serif italic text-stone-200 leading-none">2</span><p class="text-xs text-stone-500 font-light mt-1">15g taze öğütülmüş kahveyi ekleyin.</p></div>
+                                <div class="flex gap-4 items-start"><span class="text-4xl font-serif italic text-stone-200 leading-none">3</span><p class="text-xs text-stone-500 font-light mt-1">Dairesel hareketlerle yavaşça demlemeye başlayın.</p></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- 1.4 Ethical Sourcing (Çiftlik & Doğa) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7">
+                        <div class="aspect-[4/5] w-full relative overflow-hidden rounded-[2rem] shadow-lg">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 bg-stone-900/40 mix-blend-multiply"></div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-8">
+                                <span class="text-sm tracking-[0.4em] text-[#EBE7E0] uppercase font-light mb-4">Ethical Sourcing</span>
+                                <div class="flex items-baseline gap-2 mb-1">
+                                    <span class="text-4xl font-bold tracking-widest uppercase">FROM</span>
+                                    <span class="text-3xl font-serif italic lowercase text-[#9A7B56]">the</span>
+                                </div>
+                                <span class="text-6xl font-thin tracking-widest uppercase leading-none">EARTH</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">1.4</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Sürdürülebilirlik & Köken</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Kahvenin geldiği toprakları, adil ticareti ve doğaya saygıyı anlatan, belgesel kapağı hissiyatında tasarım.</p>
+                    </div>
+                </div>
+
+                <!-- 1.5 Takı Bakım Rehberi (Jewelry Care) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">1.5</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Takı Bakım Rehberi</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Artisan takıların uzun ömürlü olması için müşteriyi eğiten zarif liste tasarımı.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-video bg-[#FDFCFB] rounded-[2rem] border border-[#9A7B56]/20 shadow-md p-10 flex items-center justify-between">
+                            <div class="w-1/2">
+                                <span class="text-[#3E2723] font-bold tracking-widest uppercase text-xl block mb-1">JEWELRY</span>
+                                <span class="text-[#9A7B56] font-serif italic text-2xl">care guide</span>
+                            </div>
+                            <div class="w-1/2 space-y-4 border-l border-stone-200 pl-6">
+                                <p class="text-[10px] text-stone-600 font-medium uppercase tracking-wider">1. Keep away from perfumes</p>
+                                <p class="text-[10px] text-stone-600 font-medium uppercase tracking-wider">2. Store in its original pouch</p>
+                                <p class="text-[10px] text-stone-600 font-medium uppercase tracking-wider">3. Polish gently with soft cloth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1.6 Kozmetik Rutini (Skincare Routine) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7">
+                        <div class="aspect-[4/3] bg-[#EBE7E0] rounded-[2rem] relative overflow-hidden shadow-lg p-10">
+                            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+                            <div class="relative z-10 h-full flex flex-col justify-between">
+                                <div>
+                                    <span class="text-[9px] uppercase tracking-[0.3em] font-bold text-[#9A7B56]">The Routine</span>
+                                    <h4 class="text-2xl font-thin tracking-widest text-[#3E2723] mt-2 uppercase">GLOW <span class="font-bold">SYSTEM</span></h4>
+                                </div>
+                                <div class="flex justify-between items-end gap-4 mt-8">
+                                    <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl flex-1 border border-white">
+                                        <span class="text-xl font-serif italic text-[#9A7B56] block">01</span>
+                                        <span class="text-[9px] font-bold text-[#3E2723] uppercase tracking-wider block mt-1">Cleanse</span>
+                                    </div>
+                                    <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl flex-1 border border-white">
+                                        <span class="text-xl font-serif italic text-[#9A7B56] block">02</span>
+                                        <span class="text-[9px] font-bold text-[#3E2723] uppercase tracking-wider block mt-1">Tone</span>
+                                    </div>
+                                    <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl flex-1 border border-white">
+                                        <span class="text-xl font-serif italic text-[#9A7B56] block">03</span>
+                                        <span class="text-[9px] font-bold text-[#3E2723] uppercase tracking-wider block mt-1">Moisturize</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">1.6</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Kozmetik Rutini</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Cilt bakım ürünlerinin kullanım sırasını "Floating Glass" panellerle 1-2-3 şeklinde anlatan estetik rehber.</p>
+                    </div>
+                </div>
+
+                <!-- 1.7 Functional Water Benefits -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">1.7</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Fonksiyonel Su Etkileri</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Menüdeki <b>Metabolism Water</b> gibi suların içindeki bitkilerin (Yeşil çay, karanfil) vücuda faydalarını anlatan bilgi grafiği.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-video bg-[#3E2723] rounded-[2rem] shadow-xl p-10 flex items-center justify-between overflow-hidden relative">
+                            <div class="absolute -right-20 opacity-20 w-64 h-64 bg-[url('https://images.unsplash.com/photo-1542614392-4f3e69621b10?auto=format&fit=crop&q=80')] bg-cover rounded-full mix-blend-overlay"></div>
+                            <div class="relative z-10">
+                                <span class="text-white/50 text-[10px] uppercase tracking-widest mb-2 block">Functional Waters</span>
+                                <h4 class="text-2xl font-bold tracking-widest text-white uppercase mb-6">METABOLISM <br/><span class="font-thin">WATER</span></h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-[#9A7B56]"></div><p class="text-[10px] uppercase tracking-widest text-stone-300">Yeşil Çay & Karanfil</p></div>
+                                    <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-[#9A7B56]"></div><p class="text-[10px] uppercase tracking-widest text-stone-300">Mate & Biberiye</p></div>
+                                </div>
+                            </div>
+                            <div class="relative z-10 text-right">
+                                <span class="text-4xl font-serif italic text-[#9A7B56] block">Fat</span>
+                                <span class="text-2xl font-thin tracking-widest uppercase text-white block">BURNER</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- ============================================== -->
+            <!-- PILLAR 2: İLHAM VERİCİ (INSPIRE) - 8 ŞABLON -->
+            <!-- ============================================== -->
+            <div class="mb-16 flex items-center justify-between border-b border-stone-200 pb-4 mt-32">
+                <h3 class="text-3xl font-bold tracking-widest uppercase text-[#3E2723]">2. İLHAM VERİCİ <span class="font-thin text-stone-400">| Inspire</span></h3>
+                <span class="text-xs tracking-widest text-[#9A7B56] font-bold uppercase border border-[#9A7B56]/30 px-3 py-1 rounded-full">8 Şablon</span>
+            </div>
+
+            <div class="space-y-24 mb-32">
+                <!-- 2.1 Kozmetik Glow (Clean Beauty) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-6 flex justify-center">
+                        <div class="aspect-[4/5] w-full max-w-sm bg-[#EBE7E0] rounded-[2.5rem] p-4 shadow-xl relative overflow-hidden">
+                            <div class="absolute inset-4 rounded-[2rem] bg-[url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+                            <div class="absolute bottom-8 left-8 right-8 text-[#3E2723] flex flex-col items-center text-center">
+                                <div class="bg-white/90 backdrop-blur-xl w-full p-6 rounded-2xl border border-white shadow-sm">
+                                    <div class="flex justify-center items-baseline gap-2 mb-1">
+                                        <span class="text-xl font-bold tracking-widest uppercase text-[#3E2723]">BOTANICAL</span>
+                                        <span class="text-lg font-serif italic lowercase text-[#9A7B56]">pure</span>
+                                    </div>
+                                    <span class="text-3xl font-thin tracking-widest uppercase">GLOW</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">2.1</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Kozmetik (Clean Beauty)</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Cilt bakımının saflığını vurgulayan, aydınlık ve ferah tasarım.</p>
+                    </div>
+                </div>
+
+                <!-- 2.2 Artisan Takı Detail Focus -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">2.2</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Jewelry Detail Focus</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Takıların el işçiliğini ve doğal dokusunu vurgulayan, aşırı makro lüks fotoğraf sunumu.</p>
+                    </div>
+                    <div class="md:col-span-5 order-1 md:order-2">
+                        <div class="aspect-square bg-[#3E2723] rounded-[2.5rem] relative overflow-hidden shadow-2xl">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599643478524-fb66f70900b1?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-80"></div>
+                            <div class="absolute top-8 left-8 text-white">
+                                <span class="text-3xl font-thin tracking-widest uppercase block">RAW</span>
+                                <span class="text-3xl font-bold tracking-widest text-[#EBE7E0] uppercase block">BEAUTY</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.3 Manifesto / Alıntı -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7">
+                        <div class="aspect-video bg-[#3E2723] rounded-[2.5rem] shadow-xl p-12 flex flex-col justify-center text-center relative">
+                            <i data-lucide="quote" class="absolute -top-4 -left-4 w-24 h-24 text-[#9A7B56] opacity-20 rotate-180"></i>
+                            <h4 class="text-[#EBE7E0] font-thin text-3xl leading-relaxed tracking-wide font-serif italic">
+                                "Slowing down is the ultimate luxury."
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">2.3</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Manifesto & Typo</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Görselsiz, tamamen tipografik (Playfair Display) aforizma veya marka mesajı tasarımı.</p>
+                    </div>
+                </div>
+
+                <!-- 2.4 Mekan Atmosferi -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">2.4</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Atmosfer & Space</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Mimariyi öne çıkaran, ortada minimal bir "Lokasyon" rozeti bulunduran sinematik mekan gösterimi.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-video relative overflow-hidden rounded-[2rem] shadow-lg">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 flex items-center justify-center bg-black/20">
+                                <div class="border border-white/50 px-6 py-2 rounded-full backdrop-blur-md">
+                                    <span class="text-white text-[10px] tracking-[0.2em] font-light uppercase">FIND US HERE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.5 Sinematik Reels Cover -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7 flex justify-center">
+                        <div class="w-[280px] h-[500px] bg-stone-900 rounded-[2.5rem] relative overflow-hidden shadow-2xl">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495474472201-416b22b102ce?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-80"></div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center text-white z-10 bg-black/40">
+                                <span class="text-2xl font-bold tracking-widest uppercase">FEEL</span>
+                                <span class="text-4xl font-thin tracking-widest uppercase">AROMA</span>
+                                <i data-lucide="play" class="w-10 h-10 mt-6 opacity-80"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">2.5</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Reels Kapakları</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Videoların Instagram akışında bir film afişi gibi görünmesini sağlayan, tam ortaya hizalı ve okunaklı kapak tasarımı.</p>
+                    </div>
+                </div>
+
+                <!-- 2.6 Morning Rituals (Lifestyle Portrait) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">2.6</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Morning Rituals</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Kahve içerken, takı takarken veya kitap okurken çekilen "Yaşam Tarzı" dikey portreleri. Slogan daima estetiktir.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2 flex justify-center">
+                        <div class="w-[280px] h-[500px] bg-[#EBE7E0] rounded-[2.5rem] relative overflow-hidden shadow-xl border-4 border-white">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521017430205-c2502844c6d6?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+                            <div class="absolute top-10 w-full text-center text-white px-4">
+                                <span class="text-2xl font-bold tracking-widest uppercase shadow-black drop-shadow-md">SLOW</span>
+                                <span class="text-3xl font-serif italic lowercase text-[#EBE7E0] drop-shadow-md block -mt-1">down</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.7 Brand Moodboard (Texture Collage) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7">
+                        <div class="aspect-square bg-white rounded-[2.5rem] p-6 shadow-xl border border-stone-100">
+                            <div class="grid grid-cols-2 gap-2 w-full h-full">
+                                <div class="bg-[url('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-tl-2xl"></div>
+                                <div class="bg-[#EBE7E0] flex items-center justify-center p-4 text-center rounded-tr-2xl">
+                                    <span class="text-sm font-serif italic text-[#9A7B56]">Art of Living</span>
+                                </div>
+                                <div class="bg-[#3E2723] flex flex-col justify-end p-4 rounded-bl-2xl">
+                                    <span class="text-white text-[8px] tracking-[0.3em] font-bold uppercase">Est. 2026</span>
+                                </div>
+                                <div class="bg-[url('https://images.unsplash.com/photo-1599643478524-fb66f70900b1?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-br-2xl"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">2.7</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Brand Moodboard</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Kahve, mimari ve takı dokularını 2x2 grid ile tek karede birleştiren, takipçiye markanın tüm dünyasını hissettiren kolaj formatı.</p>
+                    </div>
+                </div>
+
+                <!-- 2.8 Doku & Detay (Texture Focus) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">2.8</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Doku (Texture Focus)</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Makro çekilmiş espresso kreması, kahve çekirdeği matlığı veya pudra şekeri detayı. Saf görsel estetiğe odaklanır.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-square bg-[#3E2723] rounded-[2.5rem] relative overflow-hidden shadow-2xl group">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"></div>
+                            <div class="absolute bottom-8 left-8 text-white">
+                                <span class="text-[9px] uppercase tracking-[0.4em] font-light opacity-80">Texture Series</span>
+                                <h4 class="text-2xl font-bold tracking-widest uppercase mt-1">THE CREMA</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ============================================== -->
+            <!-- PILLAR 3: ETKİLEŞİM (ENGAGE) - 7 ŞABLON -->
+            <!-- ============================================== -->
+            <div class="mb-16 flex items-center justify-between border-b border-stone-200 pb-4 mt-32">
+                <h3 class="text-3xl font-bold tracking-widest uppercase text-[#3E2723]">3. ETKİLEŞİM <span class="font-thin text-stone-400">| Engage</span></h3>
+                <span class="text-xs tracking-widest text-[#9A7B56] font-bold uppercase border border-[#9A7B56]/30 px-3 py-1 rounded-full">7 Şablon</span>
+            </div>
+
+            <div class="space-y-24 mb-32">
+                <!-- 3.1 UGC (Customer Photo) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">3.1</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">UGC Repost</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Müşteri fotoğraflarını çerçeveyle (passepartout) estetik bir şekilde sergileme ve "@" ile etiketleme formatı.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2 flex justify-center">
+                        <div class="aspect-square w-full max-w-sm bg-[#FDFCFB] border border-stone-200 shadow-xl p-8 flex flex-col">
+                            <span class="text-lg font-semibold tracking-widest text-[#3E2723] uppercase mb-4 block text-center">OUR <span class="font-serif italic lowercase text-[#9A7B56]">community</span></span>
+                            <div class="flex-1 bg-[url('https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?auto=format&fit=crop&q=80')] bg-cover bg-center shadow-inner mb-4"></div>
+                            <span class="text-stone-400 text-[10px] tracking-widest text-center uppercase">@coffee_lover</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.2 Poll Story (Etkileşimli) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7 flex justify-center">
+                        <div class="w-[280px] h-[500px] bg-[#EBE7E0] rounded-[2.5rem] shadow-xl relative overflow-hidden border-[6px] border-white flex flex-col">
+                            <div class="flex-1 flex flex-col items-center justify-center text-[#3E2723] px-6 text-center">
+                                <span class="text-2xl font-bold tracking-widest uppercase">CHOOSE</span>
+                                <span class="text-3xl font-serif italic lowercase text-[#9A7B56]">your bean</span>
+                                <div class="w-full mt-6 space-y-2">
+                                    <div class="w-full py-2 bg-white/60 rounded-lg text-[10px] font-bold tracking-wider text-stone-600">ETHIOPIA</div>
+                                    <div class="w-full py-2 bg-white/60 rounded-lg text-[10px] font-bold tracking-wider text-stone-600">COLOMBIA</div>
+                                </div>
+                            </div>
+                            <div class="h-[40%] bg-[url('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-t-3xl"></div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">3.2</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Anketli Story</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Geniş boşluk bırakılarak Instagram anket (poll) arayüzü için özel tasarlanmış interaktif hikaye.</p>
+                    </div>
+                </div>
+
+                <!-- 3.3 BTS (Ekip) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">3.3</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Zanaat & Ekip (BTS)</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Siyah-beyaz/Sepya tonlarında baristaların, kavurmacıların eylem anlarını "Master the Craft" sloganıyla yansıtır.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-[4/3] bg-[#3E2723] rounded-[2rem] relative overflow-hidden shadow-lg">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80')] bg-cover bg-center grayscale mix-blend-luminosity opacity-80"></div>
+                            <div class="absolute top-8 left-8 text-white z-10">
+                                <span class="text-2xl font-bold tracking-widest uppercase block">MASTER</span>
+                                <span class="text-3xl font-thin tracking-widest uppercase block">CRAFT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.4 Review Card -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7">
+                        <div class="aspect-video bg-[#EBE7E0] rounded-[2rem] p-10 flex flex-col justify-center border-4 border-white shadow-md text-center">
+                            <div class="flex justify-center gap-1 mb-4 text-[#9A7B56]">
+                                <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
+                            </div>
+                            <p class="text-xl text-[#3E2723] font-serif italic leading-relaxed mb-4">"The atmosphere is just incredibly calming."</p>
+                            <span class="text-[#3E2723] font-bold tracking-widest uppercase text-[10px]">SARAH J.</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">3.4</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Müşteri Yorumları</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Google/Tripadvisor yorumlarını sosyal kanıt (social proof) olarak sergileyen yıldızlı, minimalist kart.</p>
+                    </div>
+                </div>
+
+                <!-- 3.5 Q&A Story (Ask the Roaster) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">3.5</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Soru & Cevap Story</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">"Bize Sorun" (Ask Me Anything) kutucuğu için tasarlanmış temiz, odaklı ve uzmanlık belirten hikaye formatı.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2 flex justify-center">
+                        <div class="w-[280px] h-[500px] bg-[#3E2723] rounded-[2.5rem] shadow-xl relative overflow-hidden border-[6px] border-[#9A7B56]/30 flex flex-col p-8">
+                            <i data-lucide="coffee" class="text-white/20 w-32 h-32 absolute -right-10 -bottom-10"></i>
+                            <span class="text-[9px] tracking-[0.3em] font-bold uppercase text-[#9A7B56] mb-2 block">Coffee Talk</span>
+                            <span class="text-3xl font-thin tracking-widest text-white uppercase">ASK THE<br/><span class="font-bold">ROASTER</span></span>
+                            
+                            <!-- Fake Question Box Outline -->
+                            <div class="mt-auto mb-10 w-full h-24 border-2 border-dashed border-white/40 rounded-xl flex items-center justify-center">
+                                <span class="text-[10px] uppercase tracking-widest text-white/60 font-light">Instagram Soru Kutusu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.6 This or That (Versus Fit Menu) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7">
+                        <div class="aspect-video w-full rounded-[2rem] flex overflow-hidden shadow-lg border border-stone-200">
+                            <!-- Left side -->
+                            <div class="w-1/2 bg-[#3E2723] relative flex flex-col items-center justify-center group">
+                                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80')] bg-cover opacity-50"></div>
+                                <span class="relative z-10 text-white font-bold tracking-widest uppercase text-xl shadow-black drop-shadow-md">PISTACHIO</span>
+                                <span class="relative z-10 text-[#9A7B56] font-light text-[10px] uppercase tracking-widest mt-2">Bite</span>
+                            </div>
+                            <!-- Middle VS line -->
+                            <div class="w-[2px] bg-white z-20"></div>
+                            <!-- Right side -->
+                            <div class="w-1/2 bg-[#EBE7E0] relative flex flex-col items-center justify-center group">
+                                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80')] bg-cover opacity-30 mix-blend-multiply"></div>
+                                <span class="relative z-10 text-[#3E2723] font-bold tracking-widest uppercase text-xl shadow-white drop-shadow-md">TAHINI</span>
+                                <span class="relative z-10 text-[#9A7B56] font-light text-[10px] uppercase tracking-widest mt-2">Bite</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">3.6</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">This or That (Kıyas)</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Yorumları (engagement) artırmak için Fit Menü'den <b>Pistachio Bite</b> ve <b>Tahini Bite</b> gibi iki ürünü yan yana sunan Split-Screen gönderi.</p>
+                    </div>
+                </div>
+
+                <!-- 3.7 Meet the Artisan (Portrait) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">3.7</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Meet the Artisan</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Tasarımcılarımızı, şeflerimizi veya baristalarımızı tanıtan; "Kimlik kartı" havasında isimlik barındıran portre çalışması.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-square bg-[#FDFCFB] rounded-[2.5rem] p-4 relative overflow-hidden shadow-lg border border-stone-200">
+                            <div class="absolute inset-4 rounded-[2rem] bg-[url('https://images.unsplash.com/photo-1544146816-095bcfe83fb9?auto=format&fit=crop&q=80')] bg-cover bg-top"></div>
+                            <!-- Name Badge -->
+                            <div class="absolute bottom-10 right-10 bg-white/90 backdrop-blur-md px-6 py-4 rounded-xl shadow-md border border-stone-100 text-right">
+                                <span class="text-[9px] font-bold tracking-[0.2em] uppercase text-[#9A7B56] block mb-1">Head Roaster</span>
+                                <span class="text-xl font-serif italic text-[#3E2723] block leading-none">David M.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- PILLAR 4: PROMOSYON (PROMOTE) - 8 ŞABLON -->
+            <!-- ============================================== -->
+            <div class="mb-16 flex items-center justify-between border-b border-stone-200 pb-4 mt-32">
+                <h3 class="text-3xl font-bold tracking-widest uppercase text-[#3E2723]">4. PROMOSYON <span class="font-thin text-stone-400">| Promote</span></h3>
+                <span class="text-xs tracking-widest text-[#9A7B56] font-bold uppercase border border-[#9A7B56]/30 px-3 py-1 rounded-full">8 Şablon</span>
+            </div>
+
+            <div class="space-y-24 mb-32">
+                <!-- 4.1 Fit Snacks (Vegan Matcha Cookie Promo) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7">
+                        <div class="aspect-square bg-[#3E2723] rounded-[2.5rem] relative overflow-hidden shadow-2xl p-8 flex flex-col justify-between group border border-white/10">
+                            <div class="relative z-10 flex justify-between items-start text-white">
+                                <div>
+                                    <span class="text-3xl font-bold tracking-widest uppercase">NOURISH</span>
+                                    <span class="text-[3rem] font-thin tracking-widest uppercase block -mt-2">BODY</span>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-3xl font-thin font-serif text-[#EBE7E0]">12g</p>
+                                    <p class="text-[8px] uppercase tracking-[0.2em] text-[#9A7B56] font-bold">Protein</p>
+                                </div>
+                            </div>
+                            <div class="absolute -bottom-16 -right-16 w-[80%] h-[80%] bg-[url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80')] bg-cover rounded-tl-[100%]"></div>
+                            <div class="relative z-10 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl max-w-[60%]">
+                                <h4 class="text-[10px] font-bold tracking-widest uppercase text-white mb-1">Vegan Matcha Cookie</h4>
+                                <p class="text-[8px] text-white/70">Badem, Şamfıstık, Muz, Matcha. Glutensiz. 390 Kcal.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">4.1</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Protein Bites Promo</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Menüdeki <b>Vegan Matcha Cookie</b> ürününü atletik, lüks ve iştah açıcı tanıtan tasarım.</p>
+                    </div>
+                </div>
+
+                <!-- 4.2 Retail Beans (Ev Tüketimi) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">4.2</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Paket Kahve Satışı</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Vena kahvelerinin evde de tüketilmesi için e-ticarete yönlendiren, Billboard mantığıyla tipografik afiş.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-video w-full bg-[#EBE7E0] rounded-[2.5rem] p-10 flex flex-col justify-center items-center text-center shadow-lg relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80')] bg-cover mix-blend-multiply"></div>
+                            <div class="relative z-10 text-[#3E2723]">
+                                <span class="text-[8px] tracking-[0.4em] uppercase font-bold text-[#9A7B56] bg-white px-4 py-2 rounded-full mb-6 inline-block">Shop Retail Beans</span>
+                                <span class="text-[4rem] font-thin tracking-widest uppercase block leading-none">BRING HOME</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.3 Seasonal Exclusive (Immunity Shot) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7">
+                        <div class="aspect-square bg-[#EBE7E0] rounded-[2.5rem] p-4 flex flex-col justify-center items-center relative overflow-hidden shadow-md">
+                            <div class="absolute inset-2 rounded-[2rem] bg-[url('https://images.unsplash.com/photo-1615486171448-4fd187c38c82?auto=format&fit=crop&q=80')] bg-cover bg-center hue-rotate-15"></div>
+                            <div class="absolute inset-8 border border-white/40 rounded-xl pointer-events-none"></div>
+                            <div class="relative z-20 text-white text-center bg-black/40 p-6 rounded-2xl backdrop-blur-sm">
+                                <span class="text-3xl font-bold tracking-widest uppercase block">IMMUNITY</span>
+                                <span class="text-4xl font-thin tracking-widest uppercase block leading-none">SHOT</span>
+                                <span class="text-[8px] tracking-[0.3em] font-bold text-[#9A7B56] mt-4 block uppercase bg-white px-3 py-1 rounded-full text-stone-800">Winter Limited</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">4.3</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Sınırlı Üretim (Seasonal)</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">İç çerçeveli kartpostal etkisi. Kış menüsü için <b>Immunity Shot</b> (Portakal, Zerdeçal) tanıtımına anında satın alma hissi uyandırır.</p>
+                    </div>
+                </div>
+
+                <!-- 4.4 Patisserie Pairing -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">4.4</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Tatlı Eşleşmesi (Pairing)</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Kruvasan ve artisan keklerin, karanlık ve zengin bir kadrajda "Sweeten the Moment" kurgusuyla satıldığı şablon.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2 flex justify-center">
+                        <div class="aspect-[3/4] w-full max-w-sm bg-[#3E2723] rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495147466023-2ce6c9b4eb88?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 to-transparent"></div>
+                            <div class="absolute bottom-10 left-8 text-white">
+                                <span class="text-3xl font-bold tracking-widest uppercase block">SWEETEN</span>
+                                <span class="text-[3rem] font-thin tracking-widest uppercase leading-none block">MOMENT</span>
+                                <span class="text-[9px] tracking-[0.3em] font-light uppercase mt-4 block text-[#9A7B56]">Artisan Pastries</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.5 Kurumsal Duyuru (Announcement) -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7">
+                        <div class="aspect-video w-full bg-[#3E2723] rounded-[2.5rem] p-10 flex flex-col justify-center items-center text-center shadow-md relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+                            <div class="relative z-10 text-white flex flex-col items-center">
+                                <span class="text-3xl font-bold tracking-widest uppercase">JOIN THE</span>
+                                <span class="text-5xl font-thin tracking-widest uppercase">CLUB</span>
+                                <div class="w-12 h-[1px] bg-[#9A7B56] my-4"></div>
+                                <span class="text-[10px] tracking-[0.3em] uppercase font-bold text-stone-300">New Branch Opening</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">4.5</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Kampanya & Duyuru</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Şube açılışları veya büyük çaplı etkinlikler için imajın olmadığı, "Tam Odaklı" duyuru formatı.</p>
+                    </div>
+                </div>
+
+                <!-- 4.6 Salty Crackers / Keto Grissini -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">4.6</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Salty Crackers Promo</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Menüdeki <b>Keto Grissini</b> gibi tuzlu atıştırmalıklar için tasarlanmış ferah, gündüz öğünü algısı yaratan açık renkli (Stone Grey) tanıtım postu.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-video w-full bg-[#EBE7E0] rounded-[2.5rem] flex relative overflow-hidden shadow-lg">
+                            <div class="w-1/2 p-8 flex flex-col justify-center relative z-10">
+                                <span class="text-[9px] uppercase tracking-[0.2em] font-bold text-[#9A7B56] mb-2 block">Guilt-Free Crunch</span>
+                                <h4 class="text-2xl font-bold tracking-widest uppercase text-[#3E2723]">KETO</h4>
+                                <h4 class="text-2xl font-thin tracking-widest uppercase text-[#3E2723]">GRISSINI</h4>
+                                <p class="text-[9px] text-stone-500 font-medium mt-4 max-w-[150px]">Nohut unu, glutensiz formül, çıtır lezzet. 514 Kcal.</p>
+                            </div>
+                            <div class="w-1/2 bg-[url('https://images.unsplash.com/photo-1621236378699-8597faf6a176?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.7 Artisan Takı Satış -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-7 flex justify-center">
+                         <div class="aspect-square w-full max-w-sm bg-[#3E2723] rounded-[2.5rem] p-4 shadow-xl relative overflow-hidden">
+                            <div class="absolute inset-4 rounded-[2rem] bg-[url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-80"></div>
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute top-10 left-10 text-white z-10">
+                                <span class="text-[8px] font-bold uppercase tracking-[0.3em] bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full mb-3 inline-block">New Drop</span>
+                                <span class="text-2xl font-semibold tracking-widest uppercase block">THE RAW</span>
+                                <span class="text-2xl font-serif italic text-[#9A7B56] block">collection</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">4.7</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Takı Drop İlanı</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Vena'nın yeni takı koleksiyonlarını (Drop) karanlık, lüks bir premium estetik ile "satışa çıktı" (New Drop) şeklinde sunan odak formatı.</p>
+                    </div>
+                </div>
+
+                <!-- 4.8 Kozmetik Bundle Satış -->
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="md:col-span-5 order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-3xl font-thin text-stone-300">4.8</span>
+                            <h3 class="text-sm font-bold tracking-[0.2em] text-[#3E2723] uppercase">Kozmetik Set Satışı</h3>
+                        </div>
+                        <p class="text-stone-500 font-light leading-relaxed text-sm">Birden fazla kozmetik ürününü bir "Set/Bundle" olarak minimal (Studio White) ortamda sergileyen, mağazaya (e-commerce) gitmeye zorlayan temiz satış görseli.</p>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="aspect-video w-full bg-[#FDFCFB] border border-stone-200 rounded-[2.5rem] flex relative overflow-hidden shadow-lg p-10 items-center justify-between">
+                            <div class="w-[45%]">
+                                <span class="text-[9px] uppercase tracking-[0.2em] font-bold text-[#9A7B56] mb-2 block">Gift Set</span>
+                                <h4 class="text-3xl font-thin tracking-widest uppercase text-[#3E2723] leading-tight">BOTANICAL<br/><span class="font-bold">BUNDLE</span></h4>
+                                <button class="mt-6 border-b border-[#3E2723] pb-1 text-[9px] uppercase tracking-widest text-[#3E2723] font-bold">Shop Now</button>
+                            </div>
+                            <div class="w-[50%] aspect-square bg-[url('https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-[1.5rem]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
     <!-- Scripts -->
     <script>
-        // Lucide ikonlarını başlat (SVG'lere dönüştürür)
         lucide.createIcons();
 
-        // Sekme Değiştirme (Tab Switching) Mantığı
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.style.background = 'rgba(253, 252, 251, 0.95)';
+                nav.style.boxShadow = '0 10px 30px rgba(62, 39, 35, 0.05)';
+            } else {
+                nav.style.background = 'rgba(253, 252, 251, 0.80)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
         function switchTab(tabName) {
             const btnBrand = document.getElementById('tab-btn-brand');
             const btnDigital = document.getElementById('tab-btn-digital');
             const sectionBrand = document.getElementById('section-brand');
             const sectionDigital = document.getElementById('section-digital');
 
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
             if (tabName === 'brand') {
-                // Stil güncellemeleri
-                btnBrand.classList.remove('border-transparent', 'text-stone-400');
                 btnBrand.classList.add('border-[#3E2723]', 'text-[#3E2723]');
+                btnBrand.classList.remove('border-transparent', 'text-stone-400');
                 btnDigital.classList.remove('border-[#3E2723]', 'text-[#3E2723]');
                 btnDigital.classList.add('border-transparent', 'text-stone-400');
                 
-                // Görünürlük güncellemeleri
                 sectionBrand.classList.remove('hidden');
                 sectionBrand.classList.add('block');
                 sectionDigital.classList.remove('block');
                 sectionDigital.classList.add('hidden');
                 
             } else if (tabName === 'digital') {
-                // Stil güncellemeleri
-                btnDigital.classList.remove('border-transparent', 'text-stone-400');
                 btnDigital.classList.add('border-[#3E2723]', 'text-[#3E2723]');
+                btnDigital.classList.remove('border-transparent', 'text-stone-400');
                 btnBrand.classList.remove('border-[#3E2723]', 'text-[#3E2723]');
                 btnBrand.classList.add('border-transparent', 'text-stone-400');
                 
-                // Görünürlük güncellemeleri
                 sectionDigital.classList.remove('hidden');
                 sectionDigital.classList.add('block');
                 sectionBrand.classList.remove('block');
